@@ -124,6 +124,7 @@ function gameweekGenerate() {
 
 //push week numbers into an array to populate the 
 function arrayPop(num) {
+    gameweekArray = [];
     for (var i = 1; i <= num; i++) {
         gameweekArray.push(i);
     }
@@ -131,7 +132,8 @@ function arrayPop(num) {
 
 // empty schedule section, construct url and call ajax
 function scheduleRound() {
-    $('#schedule').empty().attr('class','show');
+    $('#schedule').empty();
+    $('#schedule').attr('class','show');
     // set the api url
     var league = 'id=' + leagues[$('#leagues').val()];
     var year = '&s=' + $('#season').val();
@@ -142,13 +144,16 @@ function scheduleRound() {
 		"method": "GET"
 	})
 	.then(function (response) {
-        console.log(response);
+        // console.log(response);
 		var yearH = $('<h2>').text('Season: ' + $('#season').val() );
 		var roundH = $('<h2>').text('Gameweek: ' + $('#gameweek').val());
 
 		$('#schedule').append(yearH, roundH);
 
-    })
+        // dynamic update of the fixtures
+		scheduleDynamic(response);
+    });
+    return;
 }
 
 // dynamically populate the html in the schedule section and add api data
