@@ -1,3 +1,4 @@
+
 /* ADIL'S CSS */
 :root
 {
@@ -9,6 +10,8 @@
     --searchSecondaryColor: #101820;
     
 }
+
+
 
 /* Page theme - background image */
 #page {
@@ -27,11 +30,14 @@ h1
     font-family: 'Prompt' sans-serif ,'Raleway' , 'Open Sans';
     font-weight: bolder;
 }
+
+
 h2,h3,h4,h5,p
 {
     font-family: 'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
     
 }
+
 #searchInput[type=text] 
 {
     padding: 10px;
@@ -70,10 +76,9 @@ h2,h3,h4,h5,p
     grid-template-areas: 
     'playerResultsItem recentSearch';
 }
-.borderPlayerSearch
-{
-    border-left: 2px solid var(--brandcolor);
-}
+
+
+
 #playerResultsItem
 {
     grid-area: playerResultsItem ;
@@ -116,14 +121,16 @@ h2,h3,h4,h5,p
 {
     grid-area: recentSearchItem4 ;
 }
-footer
+
+
+/* footer
 {
     border-top: 5px solid var(--secondaryBrandColor); 
     background-color: var(--searchColor);
     color: var(--textcolor);
     justify-content: center;
     text-align: center;
-}
+} */
 
 /* TOM'S CSS FOR LANDING PAGE */
 
@@ -215,4 +222,10 @@ footer
 .navbar img {
   height: 30px;
   width: 30px;
+}
+
+/* Hiding the tabs*/
+.hidden
+{
+  display: none !important;
 }
