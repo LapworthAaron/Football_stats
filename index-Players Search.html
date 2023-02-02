@@ -26,25 +26,50 @@
     </header>
   
     <nav class="navbar navbar-expand-sm" id="secondaryNavbar">
-    <!-- Search button Bar -->
-        <section class="player">
+        
+        <ul class="navButton">
+           <li><button type="button" class="btn btn-primary">Home</button></li> 
+           <li><button type="button" class="btn btn-primary">League Table</button></li> 
+           <li><button type="button" class="btn btn-primary">Fixtures / Results</button></li> 
+           <li><button type="button" class="btn btn-primary">Player Search</button></li> 
+        </ul>
+
+     <!-- Search button Bar -->
+        <section class="search">
            <div class="playerSearchSpacing">
                 <form class="playerSearchBtn">
                     <input id="searchInput" type="text" placeholder="Search Player">
                     <button id="searchBtn" type="submit"> <i class="fa fa-search"></i> </button>
                 </form>
            </div>    
-
-        
         </section>
+
     </nav>
   <hr>
-      
+  
+  <section id="landingPage" class="hidden">
+
+  </section>
+
+  <section id="leagueTable" class="hidden">
+  </section>
+
+  <section id="schedule" class="hidden">
+  </section>
+
+
   <!-- Place for Player Search Results -->
-    <section id="playerResults">
+    <section id="playerSearch">
         <article id = "playerResultsItem">  
             <h3> Search Results </h3>
-      
+            
+            <div class="playerBio" id="">
+                <div id="playerInfo">
+                    <img class="playerImg" src=""/>
+
+                </div>
+
+            </div>
           
         </article> 
 

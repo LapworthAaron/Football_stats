@@ -1,10 +1,11 @@
 :root
 {
-    --brandcolor: #4f2683;
-    --secondarybrandcolor: #ede509;
-    --textcolor: #101820;
-    --secondarytextcolor: #ffffff;
-    --searchcolor: #ffffff;
+    --brandcolor: #9CCC65;
+    --secondaryBrandColor: #311B92;
+    --textColor: #101820;
+    --secondaryTextColor: #ffffff;
+    --searchColor: #ffffff;
+    --searchSecondaryColor: #101820;
     
 }
 
@@ -16,23 +17,57 @@
 
 #bigNav
 {
-    background-color: var(--secondarybrandcolor);
-    color: var(--brandcolor);
+    background-color: var(--brandcolor);
+    color: var(--secondaryBrandColor);
 }
 #secondaryNavbar
 {
-    background-color: var(--brandcolor);
+    background-color: var(--secondaryBrandColor);
 }
 
+/*button and items in the menu*/
+ul
+{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 30%;
+
+}
+
+li a
+{   
+    
+    list-style-type: none;
+    display: flex;
+    font-weight: bolder;
+    margin: 20px;
+    text-decoration: none;
+    color:var(--secondarycolor)
+    
+}
 
 h1
 {
-    font-family: 'Unbounded', cursive;
+    font-family: 'Prompt' sans-serif ,'Raleway' , 'Open Sans';
+    font-weight: bolder;
 }
 
 h2,h3,h4,h5,p
 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
+    
+}
+
+h1
+{
+    font-family: 'Prompt' sans-serif ,'Raleway' , 'Open Sans';
+    font-weight: bolder;
+}
+
+h2,h3,h4,h5,p
+{
+    font-family: 'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
     
 }
 
@@ -46,7 +81,7 @@ h2,h3,h4,h5,p
     border: 1px solid grey;
     float: left;
     width: 80%;
-    background: var(--searchcolor);
+    background: var(--searchColor);
 }
   
 #searchBtn
@@ -54,8 +89,8 @@ h2,h3,h4,h5,p
     float: left;
     width: 20%;
     padding: 10px;
-    background: var(--brandcolor);
-    color: var(--searchcolor);
+    background: var(--searchColor);
+    color: var(--secondaryBrandColor);
     font-size: 1.1em;
     border: 1px solid grey;
     border-left: none;
@@ -65,11 +100,11 @@ h2,h3,h4,h5,p
   
 #searchBtn:hover 
 {
-    background-color: var(--searchcolor);
+    background-color: var(--secondaryBrandColor);
     color: var(--brandcolor);
 }
 
-#playerResults
+#playerSearch
 {
     margin-left: 5%;
     display: grid;
@@ -136,8 +171,8 @@ h2,h3,h4,h5,p
 
 footer
 {
-    border-top: 5px solid var(--searchcolor); 
-    background-color: var(--brandcolor);
+    border-top: 5px solid var(--secondaryBrandColor); 
+    background-color: var(--searchColor);
     color: var(--textcolor);
     justify-content: center;
     text-align: center;
