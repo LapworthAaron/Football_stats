@@ -4,12 +4,17 @@ var leagues = {'English_Premier_League':4328,
                'League_Two':4397};
 
 var tableUrl = 'https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?';
+var scheduleUrl = 'https://www.thesportsdb.com/api/v1/json/3/eventsround.php?';
+
 
 // section for tab clicks
 
 $('.updateBtn').on('click',leagueTable);
 
 
+///////////////////////////
+// League table section
+///////////////////////////
 // create and display the league table dynamically
 function leagueTable() {
     // set the api url
@@ -23,7 +28,7 @@ function leagueTable() {
         })
     .then(function (response) {
         //create table and append to the league table section
-        leagueTableTemplate(response);
+        leagueTableTemplate();
         // dynamically create the table contents
         leagueTableContents(response);
     });
@@ -95,3 +100,26 @@ function leagueTableContents() {
         tableRow.append(pos,logo,team,played,wins,draws,loses,gd,gf,ga,points,form,desc);
     }
 }
+
+///////////////////////////
+// Schedule section
+///////////////////////////
+var gameweekArray = [];
+
+//get the number of games in a season, epl is the only one with 38 games
+function gameweekGenerate() {
+    if (leagues[$('#leagues').val()] === 4328) {
+        arrayPop(38);
+    } else {
+        arrayPop(46);
+    }
+}
+
+//push week numbers into an array to populate the 
+function arrayPop(num) {
+    for (var i = 1; i <= num; i++) {
+        gameweekArray.push(i);
+    }
+}
+
+console.log(gameweekArray);
