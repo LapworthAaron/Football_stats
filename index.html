@@ -34,30 +34,70 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">League Table</a>
+              <a class="nav-link js-scroll-trigger" id="leagueTableTab" href="#">League Table</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Schedule</a>
+              <a class="nav-link js-scroll-trigger" id="scheduleTab" href="#">Schedule</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Player Search</a>
+              <a class="nav-link js-scroll-trigger" id="playerSearchTab" href="#">Player Search</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
+    <!--Dropdown-->
+    <div class="hidden" id="filterBanner">
+      <div class="hidden" id="leagueDiv">
+        <label for="leagues">League:</label>
+        <select name="Leagues" id="leagues">
+          <option value="English_Premier_League">English Premier League</option>
+          <option value="The_Championship">The Championship</option>
+          <option value="League_One">League One</option>
+          <option value="League_Two">League Two</option>
+        </select>
+      </div>
+
+      <div class="hidden" id="seasonDiv">
+        <label for="season">Seasons:</label>
+        <select name="season" id="season">
+          <option value="2022-2023">2022-2023</option>
+          <option value="2021-2022">2021-2022</option>
+          <option value="2020-2021">2020-2021</option>
+          <option value="2019-2020">2019-2020</option>
+          <option value="2018-2019">2018-2019</option>
+          <option value="2017-2018">2017-2018</option>
+        </select>
+      </div>
+
+      <div class="hidden" id="gameweekDiv">
+        <label for="gameweek">Gameweek:</label>
+        <select name="gameweek" id="gameweek">
+        </select>
+      </div>
+      <!-- text input for player search id="playerSearch" -->
+      <div class="hidden" id="playerSearchDiv">
+
+      </div>
+      <!--Dropdown-->
+      <button type="button" id="updateBtnLeague">Update</button>
+      <button type="button" id="updateBtnSchedule">Update</button>
+      <button type="button" id="searchBtnPlayer">Search</button>
+    </div>
     <!-- Landing Section -->
     <section class="landingPage" id="about">
       <div class="container h-100">
         <div class="row h-100">
           <div class="col-lg-12">
             <div class="header-content mx-auto hero-head">
-              <h1 class="mb-5">Your one-stop for English Football</h1>
+              <h1 class="mb-5"> Your one-stop for English Football</h1>
               <h2> Access the latest league tables and check out future fixtures for your English football league of
                 choice! </h2>
             </div>
           </div>
         </div>
+
         <div class="row h-200">
           <div id="carouselExampleIndicators" class="carousel slide col-lg-12" data-ride="carousel">
             <div class="carousel-inner">
@@ -97,7 +137,7 @@
     </section>
 
     <!-- Player Search Section -->
-    <section id="playerSearch">
+    <section id="playerSearch" class="hidden">
       <article id="playerResultsItem">
         <h3> Search Results </h3>
 
@@ -108,12 +148,16 @@
         </div>
 
       </article>
+
+
+
       <aside class="borderPlayerSearch">
         <div id="recentSearch">
           <h3>Recent Searches</h3>
         </div>
         <div class="recentSearchItems">
           <div id="recentSearchItem1">
+
             <h4> Cristiano Ronaldo </h4>
           </div>
           <div id="recentSearchItem2">
