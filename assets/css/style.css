@@ -1,19 +1,133 @@
-a,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #F5F5F5;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+/* ADIL'S CSS */
+:root
+{
+    --brandcolor: #9CCC65;
+    --secondaryBrandColor: #311B92;
+    --textColor: #101820;
+    --secondaryTextColor: #ffffff;
+    --searchColor: #ffffff;
+    --searchSecondaryColor: #101820;
+    
 }
 
-.carousel-inner img {
-  margin: auto;
+/* Page theme - background image */
+#page {
+  background-image: url("/assets/images/pitch-dark.jpg");
+  background-repeat: no-repeat;
 }
 
+/*setting style accross the entire page to be used globally*/
+*
+{
+    scroll-behavior: smooth;
+}
+
+h1
+{
+    font-family: 'Prompt' sans-serif ,'Raleway' , 'Open Sans';
+    font-weight: bolder;
+}
+h2,h3,h4,h5,p
+{
+    font-family: 'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
+    
+}
+#searchInput[type=text] 
+{
+    padding: 10px;
+    font-size: 1.1em;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: var(--searchColor);
+}
+  
+#searchBtn
+{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: var(--searchColor);
+    color: var(--secondaryBrandColor);
+    font-size: 1.1em;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+   
+}
+  
+#searchBtn:hover 
+{
+    background-color: var(--secondaryBrandColor);
+    color: var(--brandcolor);
+}
+#playerSearch
+{
+    margin-left: 5%;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 75% 25%;
+    grid-template-areas: 
+    'playerResultsItem recentSearch';
+}
+.borderPlayerSearch
+{
+    border-left: 2px solid var(--brandcolor);
+}
+#playerResultsItem
+{
+    grid-area: playerResultsItem ;
+}
+#recentSearch
+{
+    grid-area: recentSearch ;
+    margin-right: 20% ;
+    margin-left: 10%;
+    /*display:grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+    'recentSearchItem1'
+    'recentSearchItem2'
+    'recentSearchItem3'
+    'recentSearchItem4'
+    ;*/
+}
+.recentSearchItems
+{
+    width: fit-content;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+#recentSearchItem1
+{
+   
+    grid-area: recentSearchItem1 ;
+}
+#recentSearchItem2
+{
+    grid-area: recentSearchItem2 ;   
+}
+#recentSearchItem3
+{
+    grid-area: recentSearchItem3 ;
+}
+#recentSearchItem4
+{
+    grid-area: recentSearchItem4 ;
+}
+footer
+{
+    border-top: 5px solid var(--secondaryBrandColor); 
+    background-color: var(--searchColor);
+    color: var(--textcolor);
+    justify-content: center;
+    text-align: center;
+}
+
+/* TOM'S CSS FOR LANDING PAGE */
+
+/*Landing Section CSS*/
 .landingPage {
   margin-top: 150px;
   justify-content: center;
@@ -21,37 +135,36 @@ h6 {
 }
 
 .landingPage h1 {
+  color: #F5F5F5;
   font-size: 68px;
   font-weight: 600;
 }
 
 .landingPage h2 {
+  color: #F5F5F5;
   margin-bottom: 50px;
 }
 
+/* Carousel CSS */
 .landing-carousel {
   margin-top: 50px;
   max-height: 300px;
   max-width: 300px;
 }
 
-#page {
-  background-image: url("/assets/images/pitch-dark.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.carousel-inner img {
+  margin: auto;
 }
 
-/* Navigation */
+/* Navigation Bar CSS */
 #mainNav {
   transition: all .35s;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 200;
   letter-spacing: 1px;
 }
 
 #mainNav .navbar-brand {
   color: #F5F5F5;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -64,7 +177,6 @@ h6 {
 
 #mainNav .navbar-nav>li>a {
   font-size: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
