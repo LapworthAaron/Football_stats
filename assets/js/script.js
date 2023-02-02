@@ -108,10 +108,17 @@ var gameweekArray = [];
 
 //get the number of games in a season, epl is the only one with 38 games
 function gameweekGenerate() {
+    //update dropdown
+    $('#gameweek').empty();
     if (leagues[$('#leagues').val()] === 4328) {
         arrayPop(38);
     } else {
         arrayPop(46);
+    }
+
+    for (var i = 0; i < gameweekArray.length; i++) {
+        var option = $('<option>').attr('value',gameweekArray[i]).text(gameweekArray[i]);
+        $('#gameweek').append(option);
     }
 }
 
