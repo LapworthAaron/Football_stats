@@ -129,4 +129,23 @@ function arrayPop(num) {
     }
 }
 
-console.log(gameweekArray);
+function scheduleRound() {
+    $('#schedule').empty().attr('class','show');
+    // set the api url
+    var league = 'id=' + leagues[$('#leagues').val()];
+    var year = '&s=' + $('#season').val();
+    var week = '&r=' + $('#gameweek').val();
+    var queryUrl = scheduleUrl + league + week + year;
+
+    $.ajax({"url": queryUrl,
+		"method": "GET"
+	})
+	.then(function (response) {
+        console.log(response);
+		var yearH = $('<h2>').text('Season: ' + $('#season').val() );
+		var roundH = $('<h2>').text('Gameweek: ' + $('#gameweek').val());
+
+		$('#schedule').append(yearH, roundH);
+
+    })
+}
