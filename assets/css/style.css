@@ -1,98 +1,106 @@
-
-
-a, p, h1, h2, h3, h4, h5, h6 {
-    color: #F5F5F5;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #F5F5F5;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 .carousel-inner img {
-    margin: auto;
-  }
-
-.landing {
-    margin-top: 150px;
-    justify-content: center;
-    text-align: center;
+  margin: auto;
 }
 
-.landing h1 {
-    font-size: 68px;
-    font-weight: 600;
+.landingPage {
+  margin-top: 150px;
+  justify-content: center;
+  text-align: center;
 }
 
-.landing h2 {
-    margin-bottom: 50px;
+.landingPage h1 {
+  font-size: 68px;
+  font-weight: 600;
+}
+
+.landingPage h2 {
+  margin-bottom: 50px;
 }
 
 .landing-carousel {
-    margin-top: 50px;
-    max-height: 300px;
-    max-width: 300px;
+  margin-top: 50px;
+  max-height: 300px;
+  max-width: 300px;
 }
 
 #page {
-    background-image: url("/assets/images/pitch-dark.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("/assets/images/pitch-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Navigation */
 #mainNav {
-    transition: all .35s;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 200;
-    letter-spacing: 1px;
-  } 
-  
-  #mainNav .navbar-brand {
-      color:  #F5F5F5;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-  #mainNav .navbar-toggler {
-    font-size: 20px;
-    padding: 8px 10px;
-    color:  #F5F5F5;
-  }
-  
-  #mainNav .navbar-nav > li > a {
-    font-size: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-radius: 15px;
-  }
-  
-  #mainNav .navbar-nav > li > a.active {
-      color: #F5F5F5 !important;
-      background-color: transparent;
-    }
-  
-  
-  #mainNav .navbar-nav > li > a.active:hover {
-    background-color: transparent;
-  }
-  
-  #mainNav .navbar-nav > li > a,
-  #mainNav .navbar-nav > li > a:focus {
-    color:  #F5F5F5;
-  }
-  
-  #mainNav .navbar-nav > li > a:hover,
-  #mainNav .navbar-nav > li > a:focus:hover {
-    color: rgba(255, 255, 255, 1);
-    box-shadow: 0 5px 15px rgb(255, 255, 255);
-    
-  }
-.navbar a {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 900 !important;
-    margin-left: 10px;
-}
-.navbar img {
-height: 30px;
-width: 30px;
+  transition: all .35s;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 200;
+  letter-spacing: 1px;
 }
 
+#mainNav .navbar-brand {
+  color: #F5F5F5;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#mainNav .navbar-toggler {
+  font-size: 20px;
+  padding: 8px 10px;
+  color: #F5F5F5;
+}
+
+#mainNav .navbar-nav>li>a {
+  font-size: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 15px;
+}
+
+#mainNav .navbar-nav>li>a.active {
+  color: #F5F5F5 !important;
+  background-color: transparent;
+}
+
+
+#mainNav .navbar-nav>li>a.active:hover {
+  background-color: transparent;
+}
+
+#mainNav .navbar-nav>li>a,
+#mainNav .navbar-nav>li>a:focus {
+  color: #F5F5F5;
+}
+
+#mainNav .navbar-nav>li>a:hover,
+#mainNav .navbar-nav>li>a:focus:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgb(255, 255, 255);
+
+}
+
+.navbar a {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 900 !important;
+  margin-left: 10px;
+}
+
+.navbar img {
+  height: 30px;
+  width: 30px;
+}
