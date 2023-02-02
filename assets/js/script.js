@@ -45,6 +45,24 @@ function showPlayerPage() {
     // $('#searchBtnPlayer').unbind('click').on('click',playerSearch);
 }
 
+function hideShow(fb,ld,sd,gd,psd,ubl,ubs,sbp,lp,lt,s,ps) {
+    // banner
+    $('#filterBanner').attr('class',fb);
+    // dropdowns and text input
+    $('#leagueDiv').attr('class',ld);
+    $('#seasonDiv').attr('class',sd);
+    $('#gameweekDiv').attr('class',gd);
+    $('#playerSearchDiv').attr('class',psd);
+    // update buttons and search button
+    $('#updateBtnLeague').attr('class',ubl);
+    $('#updateBtnSchedule').attr('class',ubs);
+    $('#searchBtnPlayer').attr('class',sbp);
+    // actual dynamic content sections
+    $('#landingPage').attr('class',lp);
+    $('#leagueTable').attr('class',lt).empty();
+    $('#schedule').attr('class',s).empty();
+    $('#playerSearch').attr('class',ps).empty();
+}
 
 ///////////////////////////
 // League table section
