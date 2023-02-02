@@ -129,6 +129,7 @@ function arrayPop(num) {
     }
 }
 
+// empty schedule section, construct url and call ajax
 function scheduleRound() {
     $('#schedule').empty().attr('class','show');
     // set the api url
@@ -148,4 +149,43 @@ function scheduleRound() {
 		$('#schedule').append(yearH, roundH);
 
     })
+}
+
+// dynamically populate the html in the schedule section and add api data
+function scheduleDynamic(response) {
+    //loop through each fixture
+    for (var i = 0; i < response.events.length; i++) {
+        // create one heading for the details or date, time and venue for the match
+        var rawDate = moment(response.events[i].dateEvent,"YYYY-mm-dd").format('Do MMM YYYY');
+        var rawTime = moment(response.events[i].strTime,"HH:mm:ss").format('ha');
+        var venue = response.events[i].strVenue;
+        var logHeading = $('<h5>').text(rawDate + ' - ' + rawTime + ' @ ' + venue)
+            .attr('class','fixtureLogistics');
+        $('#schedule').append(logHeading);
+        
+        //get the fixtures and game detail
+        if (response.events[i].intHomeScore != null) {
+            var tableRow = $('<tr>').attr('class','fixtureTeam');
+            $('#schedule').append(tableRow);
+            var teamH = $('<td>').text(response.events[i].strHomeTeam);
+            // middle section of scores and colon
+            var scoreMiddle = $('<td>').attr('class','scoreMiddle');
+            var scoreH = $('<h3>').text(response.events[i].intHomeScore);
+            var colon = $('<h3>').text(" : ");
+            var scoreA = $('<h3>').text(response.events[i].intAwayScore);
+            scoreMiddle.append(scoreH, colon, scoreA);
+            var teamA = $('<td>').text(response.events[i].strAwayTeam);
+            tableRow.append(teamH, scoreMiddle, teamA);
+        } else {
+            var tableRow = $('<tr>').attr('class','fixtureTeam')
+            $('#schedule').append(tableRow);
+            var teamH = $('<td>').text(response.events[i].strHomeTeam);
+            // middle section of just v
+            var scoreMiddle = $('<td>').attr('class','scoreMiddle');
+            var vs = $('<h3>').text(" v ");
+            scoreMiddle.append(scoreH, vs, scoreA);
+            var teamA = $('<td>').text(response.events[i].strAwayTeam);
+            tableRow.append(teamH, scoreMiddle, teamA);
+        }
+    }
 }
