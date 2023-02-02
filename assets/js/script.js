@@ -116,7 +116,7 @@ function leagueTableTemplate() {
 }
 
 // dynamically create the table contents, looping through the response object array
-function leagueTableContents() {
+function leagueTableContents(response) {
     for (var i = 0; i < response.table.length; i++) {
         var tableRow = $('<tr>');
         var pos = $('<td>').text(response.table[i].intRank).attr('class','position rowPosition');
