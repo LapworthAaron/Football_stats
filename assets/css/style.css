@@ -1,9 +1,8 @@
+.carousel-inner img {
+    margin: auto;
+  }
 
 .landing-carousel {
-    max-height: 200px;
-    max-width: 200px;
-}
-
-.carousel-caption h5 {
-    color: black !important;
+    max-height: 300px;
+    max-width: 300px;
 }
