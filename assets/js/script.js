@@ -7,9 +7,43 @@ var tableUrl = 'https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?';
 var scheduleUrl = 'https://www.thesportsdb.com/api/v1/json/3/eventsround.php?';
 
 
-// section for tab clicks
+///////////////////////////
+// League table section
+///////////////////////////
+// tab clicks call functions
+$('#leagueTableTab').on('click',showLeaguePage);
+$('#scheduleTab').on('click',showSchedulePage);
+$('#playerSearchTab').on('click',showPlayerPage);
 
-$('.updateBtn').on('click',leagueTable);
+// show or hide the relevant content for league tables
+function showLeaguePage() {
+    hideShow('show',
+        'show','show','hidden','hidden',
+        'show','hidden','hidden',
+        'hidden','show','hidden','hidden');
+
+    $('#updateBtnLeague').unbind('click').on('click',leagueTable);
+}
+// show or hide the relevant content for schedules
+function showSchedulePage() {
+    hideShow('show',
+        'show','show','show','hidden',
+        'hidden','show','hidden',
+        'hidden','hidden','show','hidden');
+
+    gameweekGenerate();
+    $('#leagues').on('change',gameweekGenerate);
+    $('#updateBtnSchedule').unbind('click').on('click',scheduleRound);
+}
+// show or hide the relevant content for player searchs
+function showPlayerPage() {
+    hideShow('show',
+        'hidden','hidden','hidden','show',
+        'hidden','hidden','show',
+        'hidden','hidden','hidden','show');
+
+    // $('#searchBtnPlayer').unbind('click').on('click',playerSearch);
+}
 
 
 ///////////////////////////
