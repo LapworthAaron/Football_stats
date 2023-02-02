@@ -1,3 +1,84 @@
+.carousel-inner img {
+  margin: auto;
+}
+
+.landingPage {
+  margin-top: 150px;
+  justify-content: center;
+  text-align: center;
+}
+
+.landingPage h1 {
+  font-size: 68px;
+  font-weight: 600;cd wcd
+}
+
+.landingPage h2 {
+  margin-bottom: 50px;
+}
+
+.landing-carousel {
+  margin-top: 50px;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+/* Landing Page Image */
+#page {
+  background-image: url("/assets/images/pitch-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Navigation */
+#mainNav {
+  transition: all .35s;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+#mainNav .navbar-brand {
+  color: #F5F5F5;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#mainNav .navbar-toggler {
+  font-size: 20px;
+  padding: 8px 10px;
+  color: #F5F5F5;
+}
+
+#mainNav .navbar-nav>li>a {
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 15px;
+}
+
+#mainNav .navbar-nav>li>a.active {
+  color: #F5F5F5 !important;
+  background-color: transparent;
+}
+
+
+#mainNav .navbar-nav>li>a.active:hover {
+  background-color: transparent;
+}
+
+#mainNav .navbar-nav>li>a,
+#mainNav .navbar-nav>li>a:focus {
+  color: #F5F5F5;
+}
+
+#mainNav .navbar-nav>li>a:hover,
+#mainNav .navbar-nav>li>a:focus:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgb(255, 255, 255);
+
+}
+
 :root
 {
     --brandcolor: #9CCC65;
@@ -59,17 +140,7 @@ h2,h3,h4,h5,p
     
 }
 
-h1
-{
-    font-family: 'Prompt' sans-serif ,'Raleway' , 'Open Sans';
-    font-weight: bolder;
-}
 
-h2,h3,h4,h5,p
-{
-    font-family: 'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
-    
-}
 
 
 
