@@ -5,6 +5,11 @@ var leagues = {'English_Premier_League':4328,
 
 var tableUrl = 'https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?';
 
+// section for tab clicks
+
+$('.updateBtn').on('click',leagueTable);
+
+
 // create and display the league table dynamically
 function leagueTable() {
     // set the api url
