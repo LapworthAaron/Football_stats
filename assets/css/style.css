@@ -98,7 +98,7 @@ h2,h3,h4,h5,p
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
-    grid-template-areas: ;
+    /* grid-template-areas: 'playerInfo'; */
 }
 #recentSearch
 {
