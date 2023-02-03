@@ -15,6 +15,11 @@ var playerUrl = 'https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?';
 $('#leagueTableTab').on('click',showLeaguePage);
 $('#scheduleTab').on('click',showSchedulePage);
 $('#playerSearchTab').on('click',showPlayerPage);
+$('#landingBtn').on('click', function (){
+    window.location.reload()
+});
+
+
 
 // show or hide the relevant content for league tables
 function showLeaguePage() {

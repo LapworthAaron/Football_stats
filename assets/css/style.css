@@ -175,6 +175,9 @@ h2,h3,h4,h5,p
 }
 
 /* Navigation Bar CSS */
+#landingBtn {
+  border-radius: 5px;
+}
 #mainNav {
   transition: all .35s;
   font-weight: 200;
@@ -267,21 +270,21 @@ h2,h3,h4,h5,p
   border-radius: 5px;
 }
 
-#updateBtnLeague.active, #updateBtnSchedule.active, #searchBtnPlayer.active {
+#landingBtn.active, #updateBtnLeague.active, #updateBtnSchedule.active, #searchBtnPlayer.active {
   color: #F5F5F5;
   background-color: transparent;
 }
 
 
-#updateBtnLeague.active:hover, #updateBtnSchedule.active:hover, #searchBtnPlayer.active:hover  {
+#landingBtn.active:hover, #updateBtnLeague.active:hover, #updateBtnSchedule.active:hover, #searchBtnPlayer.active:hover  {
   background-color: transparent;
 }
 
-#updateBtnLeague:focus, #updateBtnSchedule:focus, #searchBtnPlayer:focus {
+#landingBtn:focus, #updateBtnLeague:focus, #updateBtnSchedule:focus, #searchBtnPlayer:focus {
   color: #F5F5F5;
 }
 
-#updateBtnLeague:hover, #updateBtnSchedule:hover, #searchBtnPlayer:hover,
+#landingBtn:hover, #updateBtnLeague:hover, #updateBtnSchedule:hover, #searchBtnPlayer:hover,
 #updateBtnLeague:focus:hover, #updateBtnSchedule:focus:hover, #searchBtnPlayer:focus:hover {
   color: rgb(124, 116, 116);
   box-shadow: 0 5px 15px rgb(255, 255, 255);
