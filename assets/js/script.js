@@ -53,21 +53,21 @@ function showPlayerPage() {
 
 function hideShow(fb,ld,sd,gd,psd,ubl,ubs,sbp,lp,lt,s,ps) {
     // banner
-    $('#filterBanner').attr('class',fb);
+    $('#filterBanner').removeClass("show hidden").addClass(fb);
     // dropdowns and text input
-    $('#leagueDiv').attr('class',ld);
-    $('#seasonDiv').attr('class',sd);
-    $('#gameweekDiv').attr('class',gd);
-    $('#playerSearchDiv').attr('class',psd);
+    $('#leagueDiv').removeClass("show hidden").addClass(ld);
+    $('#seasonDiv').removeClass("show hidden").addClass(sd);
+    $('#gameweekDiv').removeClass("show hidden").addClass(gd);
+    $('#playerSearchDiv').removeClass("show hidden").addClass(psd);
     // update buttons and search button
-    $('#updateBtnLeague').attr('class',ubl);
-    $('#updateBtnSchedule').attr('class',ubs);
-    $('#searchBtnPlayer').attr('class',sbp);
+    $('#updateBtnLeague').removeClass("show hidden").addClass(ubl);
+    $('#updateBtnSchedule').removeClass("show hidden").addClass(ubs);
+    $('#searchBtnPlayer').removeClass("show hidden").addClass(sbp);
     // actual dynamic content sections
-    $('#landingPage').attr('class',lp);
-    $('#leagueTable').attr('class',lt).empty();
-    $('#schedule').attr('class',s).empty();
-    $('#playerSearch').attr('class',ps).empty();
+    $('#landingPage').removeClass("show hidden").addClass(lp);
+    $('#leagueTable').removeClass("show hidden").addClass(lt).empty();
+    $('#schedule').removeClass("show hidden").addClass(s).empty();
+    $('#playerSearch').removeClass("show hidden").addClass(ps).empty();
 }
 
 ///////////////////////////
