@@ -253,11 +253,12 @@ h2,h3,h4,h5,p
   font-size: 18px;
 }
 
-#leagues, #season, #gameweek {
+#leagues, #season, #gameweek, #searchPlayer {
   margin-top: 10px;
-  margin-left:15px;
+  margin-left: 25px;
   border-radius: 2px;
 }
+
 #updateBtnLeague, #updateBtnSchedule, #searchBtnPlayer {
   font-size: 20px;
   letter-spacing: 1px;
