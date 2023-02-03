@@ -203,10 +203,11 @@ function scheduleRound() {
 	})
 	.then(function (response) {
         // console.log(response);
-		var yearH = $('<h2>').text('Season: ' + $('#season').val() );
+		var fixtureTitle = $('<div>').addClass('fixtureTitle');
+        var yearH = $('<h2>').text('Season: ' + $('#season').val() );
 		var roundH = $('<h2>').text('Gameweek: ' + $('#gameweek').val());
-
-		$('#schedule').append(yearH, roundH);
+        fixtureTitle.append(yearH, roundH);
+		$('#schedule').append(fixtureTitle);
 
         // dynamic update of the fixtures
 		scheduleDynamic(response);
@@ -219,17 +220,18 @@ function scheduleDynamic(response) {
     //loop through each fixture
     for (var i = 0; i < response.events.length; i++) {
         // create one heading for the details or date, time and venue for the match
+        var fixtureDiv = $('<div>').addClass('fixtureDiv')
         var rawDate = moment(response.events[i].dateEvent,"YYYY-mm-dd").format('Do MMM YYYY');
         var rawTime = moment(response.events[i].strTime,"HH:mm:ss").format('ha');
         var venue = response.events[i].strVenue;
         var logHeading = $('<h5>').text(rawDate + ' - ' + rawTime + ' @ ' + venue)
             .attr('class','fixtureLogistics');
-        $('#schedule').append(logHeading);
+        $('#schedule').append(fixtureDiv);
         
         //get the fixtures and game detail
         if (response.events[i].intHomeScore != null) {
             var tableRow = $('<tr>').attr('class','fixtureTeam');
-            $('#schedule').append(tableRow);
+            fixtureDiv.append(tableRow);
             var teamH = $('<td>').text(response.events[i].strHomeTeam);
             // middle section of scores and colon
             var scoreMiddle = $('<td>').attr('class','scoreMiddle');
@@ -241,7 +243,7 @@ function scheduleDynamic(response) {
             tableRow.append(teamH, scoreMiddle, teamA);
         } else {
             var tableRow = $('<tr>').attr('class','fixtureTeam')
-            $('#schedule').append(tableRow);
+            fixtureDiv.append(tableRow);
             var teamH = $('<td>').text(response.events[i].strHomeTeam);
             // middle section of just v
             var scoreMiddle = $('<td>').attr('class','scoreMiddle');
