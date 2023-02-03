@@ -265,11 +265,12 @@ function playerSearch() {
     console.log(playerInput);
     $('#playerSearch').empty();
 
+    // TODO: validate empty inputs
     $.ajax({"url": queryUrl,
-		"method": "GET"
-	})
+        "method": "GET"
+    })
     .then(function (response) {
-        if (response.player != null) {
+        if (response.player[0].strSport == 'Soccer') {
             // console.log(response);
             var article = $('<article>').attr('id','playerResultsItem');
             $('#playerSearch').append(article);
