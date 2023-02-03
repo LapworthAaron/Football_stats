@@ -76,10 +76,10 @@
         <select name="gameweek" id="gameweek">
         </select>
       </div>
-      <!-- text input for player search id="playerSearch" -->
+      <!-- text input for player search id="playerSearchInput" -->
       <div class="hidden" id="playerSearchDiv">
         <label for="player">Player Name:</label>
-        <input type="search" id="searchPlayer" placeholder="Eric Cantona"/>
+        <input type="search" id="playerSearchInput" placeholder="Eric Cantona"/>
       </div>
       <!--Dropdown-->
       <button type="button" id="updateBtnLeague">Update</button>
@@ -140,11 +140,8 @@
 
     <!-- Player Search Section -->
     <section id="playerSearch" class="hidden">
-      <label for="playerSearchInput">Player name here: </label>
-      <input type="text" id="playerSearchInput">
       <article id="playerResultsItem">
         <h3> Search Results </h3>
-
         <div class="playerBio" id="">
           <div id="playerInfo">
             <img class="playerImg" src="" />
