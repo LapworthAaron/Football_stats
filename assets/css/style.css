@@ -175,6 +175,9 @@ h2,h3,h4,h5,p
 }
 
 /* Navigation Bar CSS */
+#landingBtn {
+  border-radius: 5px;
+}
 #mainNav {
   transition: all .35s;
   font-weight: 200;
@@ -195,10 +198,10 @@ h2,h3,h4,h5,p
 
 #mainNav .navbar-nav>li>a {
   font-size: 20px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 600;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 #mainNav .navbar-nav>li>a.active {
@@ -218,13 +221,13 @@ h2,h3,h4,h5,p
 
 #mainNav .navbar-nav>li>a:hover,
 #mainNav .navbar-nav>li>a:focus:hover {
-  color: rgba(255, 255, 255, 1);
+  color: rgb(124, 116, 116);
   box-shadow: 0 5px 15px rgb(255, 255, 255);
 
 }
 
 .navbar a {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
   font-size: 28px;
   font-weight: 900 !important;
   margin-left: 10px;
@@ -240,3 +243,52 @@ h2,h3,h4,h5,p
 {
   display: none !important;
 }
+
+#filterBanner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #363636;
+  height: 75px;
+  color: #F5F5F5;
+  font-family:'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
+  font-weight: 900;
+  font-size: 18px;
+}
+
+#leagues, #season, #gameweek, #searchPlayer {
+  margin-top: 10px;
+  margin-left: 25px;
+  border-radius: 2px;
+}
+
+#updateBtnLeague, #updateBtnSchedule, #searchBtnPlayer {
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+#landingBtn.active, #updateBtnLeague.active, #updateBtnSchedule.active, #searchBtnPlayer.active {
+  color: #F5F5F5;
+  background-color: transparent;
+}
+
+
+#landingBtn.active:hover, #updateBtnLeague.active:hover, #updateBtnSchedule.active:hover, #searchBtnPlayer.active:hover  {
+  background-color: transparent;
+}
+
+#landingBtn:focus, #updateBtnLeague:focus, #updateBtnSchedule:focus, #searchBtnPlayer:focus {
+  color: #F5F5F5;
+}
+
+#landingBtn:hover, #updateBtnLeague:hover, #updateBtnSchedule:hover, #searchBtnPlayer:hover,
+#updateBtnLeague:focus:hover, #updateBtnSchedule:focus:hover, #searchBtnPlayer:focus:hover {
+  color: rgb(124, 116, 116);
+  box-shadow: 0 5px 15px rgb(255, 255, 255);
+
+}
+
+
