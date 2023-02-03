@@ -260,10 +260,10 @@ function scheduleDynamic(response) {
 ///////////////////////////
 // function to get player details and populate to screen
 function playerSearch() {
-    $('#playerSearch').empty();
     var playerInput = 'p=' + encodeURIComponent($('#playerSearchInput').val());
     var queryUrl = playerUrl + playerInput;
     console.log(playerInput);
+    $('#playerSearch').empty();
 
     $.ajax({"url": queryUrl,
 		"method": "GET"
@@ -289,7 +289,7 @@ function playerSearch() {
 // function to populate api data to HTML elements
 function playerHtml(response) {
     var divBio = $('<div>').attr('id','playerBio')
-    .appendTo(article);
+    .appendTo($("#playerResultsItem"));
     var divInfo = $('<div>').attr('id','playerInfo')
     .appendTo(divBio);
 
