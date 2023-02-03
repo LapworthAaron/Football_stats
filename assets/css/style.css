@@ -1,3 +1,14 @@
+/* Temp CSS for better testing - secrtions display */
+#filterBanner {
+  background-color: white;
+}
+
+#leagueTable,
+#schedule,
+#playerSearch {
+    background-color: dimgrey;
+    height: auto;
+}
 
 /* ADIL'S CSS */
 :root
