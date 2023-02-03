@@ -291,14 +291,14 @@ function playerSearch() {
 
 // function to populate api data to HTML elements
 function playerHtml(response) {
-    var divBio = $('<div>').attr('id','playerBio')
+    var divImg = $('<div>').attr({'id':'playerImg','class':'playerImg'})
     .appendTo($("#playerResultsItem"));
-    var divInfo = $('<div>').attr('id','playerInfo')
-    .appendTo(divBio);
-
-    var img = $('<img>').attr({'id':'playerImg','class':'playerImg'});
+    var img = $('<img>')
     img.attr({'src':response.player[0].strThumb,'width':'250px'})
-    .appendTo(divInfo);
+    .appendTo(divImg);
+
+    var divBio = $('<div>').attr({'id':'playerBio','class':'playerBio'})
+    .appendTo($("#playerResultsItem"));
 
     var name = $('<h3>').text('Name: ' + response.player[0].strPlayer);
     var bornDate = $('<h3>').text('DOB: ' + response.player[0].dateBorn);
@@ -306,9 +306,13 @@ function playerHtml(response) {
     var nationality = $('<h3>').text('Nationality: ' + response.player[0].strNationality);
     var position = $('<h3>').text('Position: ' + response.player[0].strPosition);
     var team = $('<h3>').text('Team: ' + response.player[0].strTeam);
-    divInfo.append(name, bornDate, bornLocation, nationality, position, team);
+    divBio.append(name, bornDate, bornLocation, nationality, position, team);
+
+    var divInfo = $('<div>').attr({'id':'playerInfo','class':'playerInfo'})
+    .appendTo($("#playerResultsItem"));
+
     
     var title = $('<h3>').text('Profile:');
     var desc = $('<h3>').text(response.player[0].strDescriptionEN);
-    divBio.append(title, desc);
+    divInfo.append(title, desc);
 }
