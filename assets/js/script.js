@@ -5,6 +5,7 @@ var leagues = {'English_Premier_League':4328,
 
 var tableUrl = 'https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?';
 var scheduleUrl = 'https://www.thesportsdb.com/api/v1/json/3/eventsround.php?';
+var playerUrl = 'https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?';
 
 
 ///////////////////////////
@@ -42,7 +43,7 @@ function showPlayerPage() {
         'hidden','hidden','show',
         'hidden','hidden','hidden','show');
 
-    // $('#searchBtnPlayer').unbind('click').on('click',playerSearch);
+    $('#searchBtnPlayer').unbind('click').on('click',playerSearch);
 }
 
 function hideShow(fb,ld,sd,gd,psd,ubl,ubs,sbp,lp,lt,s,ps) {
@@ -244,5 +245,62 @@ function scheduleDynamic(response) {
             var teamA = $('<td>').text(response.events[i].strAwayTeam);
             tableRow.append(teamH, scoreMiddle, teamA);
         }
+        //TODO: add youtube button here with link to modal
     }
+}
+
+
+///////////////////////////
+// Player Search section
+///////////////////////////
+// function to get player details and populate to screen
+function playerSearch() {
+    $('#playerSearch').empty();
+    var playerInput = 'p=' + encodeURIComponent($('#playerSearchInput').val());
+    var queryUrl = playerUrl + playerInput;
+    console.log(playerInput);
+
+    $.ajax({"url": queryUrl,
+		"method": "GET"
+	})
+    .then(function (response) {
+        if (response.player != null) {
+            // console.log(response);
+            var article = $('<article>').attr('id','playerResultsItem');
+            $('#playerSearch').append(article);
+            $('<h3>').text(' Search Results ').appendTo(article);
+
+            //populate api data to HTML elements
+            playerHtml(response);
+        } else {
+            var article = $('<article>').attr('id','playerResultsItem');
+            $('#playerSearch').append(article);
+            $('<h3>').text(' Search Results ').appendTo(article);
+            $('<h4>').text('"' + $('#playerSearchInput').val() + '" does not exist ').appendTo(article);
+        }
+    });
+}
+
+// function to populate api data to HTML elements
+function playerHtml(response) {
+    var divBio = $('<div>').attr('id','playerBio')
+    .appendTo(article);
+    var divInfo = $('<div>').attr('id','playerInfo')
+    .appendTo(divBio);
+
+    var img = $('<img>').attr({'id':'playerImg','class':'playerImg'});
+    img.attr({'src':response.player[0].strThumb,'width':'250px'})
+    .appendTo(divInfo);
+
+    var name = $('<h3>').text('Name: ' + response.player[0].strPlayer);
+    var bornDate = $('<h3>').text('DOB: ' + response.player[0].dateBorn);
+    var bornLocation = $('<h3>').text('Born: ' + response.player[0].strBirthLocation);
+    var nationality = $('<h3>').text('Nationality: ' + response.player[0].strNationality);
+    var position = $('<h3>').text('Position: ' + response.player[0].strPosition);
+    var team = $('<h3>').text('Team: ' + response.player[0].strTeam);
+    divInfo.append(name, bornDate, bornLocation, nationality, position, team);
+    
+    var title = $('<h3>').text('Profile:');
+    var desc = $('<h3>').text(response.player[0].strDescriptionEN);
+    divBio.append(title, desc);
 }
