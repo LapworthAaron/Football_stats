@@ -67,7 +67,8 @@ function hideShow(fb,ld,sd,gd,psd,ubl,ubs,sbp,lp,lt,s,ps) {
     $('#landingPage').attr('class',lp);
     $('#leagueTable').attr('class',lt).empty();
     $('#schedule').attr('class',s).empty();
-    $('#playerSearch').attr('class',ps).empty();
+    $('#playerSearch').attr('class',ps);
+    //.empty();
 }
 
 ///////////////////////////

@@ -7,6 +7,7 @@
 #schedule,
 #playerSearch {
     background-color: dimgrey;
+    color:#F5F5F5;
     height: auto;
 }
 
@@ -78,6 +79,7 @@ h2,h3,h4,h5,p
     background-color: var(--secondaryBrandColor);
     color: var(--brandcolor);
 }
+
 #playerSearch
 {
     margin-left: 5%;
@@ -93,28 +95,33 @@ h2,h3,h4,h5,p
 #playerResultsItem
 {
     grid-area: playerResultsItem ;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: ;
 }
 #recentSearch
 {
     grid-area: recentSearch ;
     margin-right: 20% ;
     margin-left: 10%;
-    /*display:grid;
+    display:grid;
     grid-template-rows: auto;
     grid-template-columns: auto;
     grid-template-areas:
     'recentSearchItem1'
     'recentSearchItem2'
     'recentSearchItem3'
-    'recentSearchItem4'
-    ;*/
+    'recentSearchItem4';
 }
+
 .recentSearchItems
 {
     width: fit-content;
     margin-left: 10%;
     margin-top: 10%;
 }
+
 #recentSearchItem1
 {
    
@@ -133,6 +140,19 @@ h2,h3,h4,h5,p
     grid-area: recentSearchItem4 ;
 }
 
+/* Structure for Player Search Bio */
+.playerImg
+{
+  border-radius: 6%;
+  margin-left: 5% ;
+  
+}
+
+/* Player Text Info */
+#playerInfo
+{
+  margin-left: 5%;
+}
 
 /* footer
 {
