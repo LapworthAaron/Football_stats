@@ -90,16 +90,63 @@ h2,h3,h4,h5,p
     'playerResultsItem recentSearch';
 }
 
+.searchResultsLabel
+{
+  margin-left: 5%;
+}
 
 
-#playerResultsItem
+#playerResultsItem 
 {
     grid-area: playerResultsItem ;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
-    /* grid-template-areas: 'playerInfo'; */
+    grid-template-areas: 
+    'playerImg playerBio'  /*1st row  */
+     'playerInfo';  /* 2nd row */
+    /* margin left: 10%; */
+    grid-gap: 0.7vh;
+    margin-top: 8%;
+   
 }
+
+/* #playerResultsItem > h3
+{
+  margin-top: 5%;
+  /* margin-left: 10%; */
+} */
+
+
+/* defining grid area for image of player  */
+.playerImg
+{
+  grid-area: playerImg ;
+  border-radius: 10%;
+  /* margin-left: 1% ; */
+  margin-top: 5%;
+}
+
+.playerImg img
+{
+  border-radius: 10%;
+  
+}
+
+/* defining grid area for player bio */
+.playerBio
+{
+  grid-area: playerBio;
+
+}
+
+/* defining grid area for player Info text (long desc. of player */
+#playerInfo
+{
+  grid-area: playerInfo;
+  word-wrap: break-word;
+}
+
 #recentSearch
 {
     grid-area: recentSearch ;
@@ -112,8 +159,11 @@ h2,h3,h4,h5,p
     'recentSearchItem1'
     'recentSearchItem2'
     'recentSearchItem3'
-    'recentSearchItem4';
-}
+    'recentSearchItem4'
+    'recentSearchItem5'
+    'clearSearch';
+    grid-gap: 2em;
+} 
 
 .recentSearchItems
 {
@@ -124,8 +174,7 @@ h2,h3,h4,h5,p
 
 #recentSearchItem1
 {
-   
-    grid-area: recentSearchItem1 ;
+   grid-area: recentSearchItem1 ;
 }
 #recentSearchItem2
 {
@@ -140,19 +189,11 @@ h2,h3,h4,h5,p
     grid-area: recentSearchItem4 ;
 }
 
-/* Structure for Player Search Bio */
-.playerImg
+#clearSearch
 {
-  border-radius: 6%;
-  margin-left: 5% ;
-  
+  grid-area: clearSearch ;
 }
 
-/* Player Text Info */
-#playerInfo
-{
-  margin-left: 5%;
-}
 
 /* footer
 {

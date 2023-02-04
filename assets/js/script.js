@@ -291,13 +291,13 @@ function playerSearch() {
 
 // function to populate api data to HTML elements
 function playerHtml(response) {
-    var divImg = $('<div>').attr({'id':'playerImg','class':'playerImg'})
+    var divImg = $('<div>').attr({'id':'playerImg','class':'playerImg'})//
     .appendTo($("#playerResultsItem"));
     var img = $('<img>')
     img.attr({'src':response.player[0].strThumb,'width':'250px'})
     .appendTo(divImg);
 
-    var divBio = $('<div>').attr({'id':'playerBio','class':'playerBio'})
+    var divBio = $('<div>').attr({'id':'playerBio'})//,'class':'playerBio'
     .appendTo($("#playerResultsItem"));
 
     var name = $('<h3>').text('Name: ' + response.player[0].strPlayer);
@@ -308,7 +308,7 @@ function playerHtml(response) {
     var team = $('<h3>').text('Team: ' + response.player[0].strTeam);
     divBio.append(name, bornDate, bornLocation, nationality, position, team);
 
-    var divInfo = $('<div>').attr({'id':'playerInfo','class':'playerInfo'})
+    var divInfo = $('<div>').attr({'id':'playerInfo'})//,'class':'playerInfo'
     .appendTo($("#playerResultsItem"));
 
     
