@@ -20,10 +20,10 @@
     --secondaryTextColor: #ffffff;
     --searchColor: #ffffff;
     --searchSecondaryColor: #101820;
-    
+    --table_one_colour: rgb(27,38,59);
+    --table_two_colour: rgb(65,90,119);
+    --table_three_colour: rgb(114,9,183);
 }
-
-
 
 /* Page theme - background image */
 #page {
@@ -89,8 +89,6 @@ h2,h3,h4,h5,p
     grid-template-areas: 
     'playerResultsItem recentSearch';
 }
-
-
 
 #playerResultsItem
 {
@@ -311,4 +309,69 @@ h2,h3,h4,h5,p
 
 }
 
+/* ---------------------------- */
+/* ---------------------------- */
+/* league table start */
+:root {
+	--table_one_colour: rgb(27,38,59);
+  --table_two_colour: rgb(65,90,119);
+  --table_three_colour: rgb(114,9,183);
+}
 
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 10px solid var(--searchSecondaryColor);
+    border-collapse: collapse;
+}
+
+table tr {
+    border: 5px solid var(--searchSecondaryColor);
+    border-collapse: collapse;
+}
+
+th,
+table tr td {
+    border-left: 1px solid var(--searchSecondaryColor);
+    border-right: 1px solid var(--searchSecondaryColor);
+    border-collapse: collapse;
+    color: white;
+    text-align: center;
+}
+
+th {
+    background-color: var(--table_one_colour);
+    padding: 0 10px;
+}
+
+table tr td {
+    background-color: var(--table_two_colour);
+}
+
+.rowPosition {
+    background-color: var(--table_three_colour);
+}
+
+.team {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table tr td div {
+    display: inline-block;
+    width: 14%;
+    text-align: center;
+    padding: 2px 1px 0 3px;
+}
+
+.formGreen{
+    color: green;
+    font-weight: bolder;
+}
+
+.formRed{
+    color: red;
+    font-weight: bolder;
+}
+/* league table start */
+/* ---------------------------- */
+/* ---------------------------- */
