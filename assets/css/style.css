@@ -94,11 +94,27 @@ h2,h3,h4,h5,p
 
 #playerResultsItem
 {
-    grid-area: playerResultsItem ;
+    grid-area: playerResultsItem;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
-    /* grid-template-areas: 'playerInfo'; */
+    grid-template-areas: 
+    'heading heading'
+    'playerImg playerBio'
+    'playerInfo playerInfo';
+}
+
+#playerResultsItem h3 
+{
+  grid-area: heading;
+}
+
+.playerImg img
+{
+  border-radius: 100%;
+  border: 1px dotted var(--searchSecondaryColor);
+  overflow: hidden;
+  width: 20%;
 }
 #recentSearch
 {
@@ -140,19 +156,6 @@ h2,h3,h4,h5,p
     grid-area: recentSearchItem4 ;
 }
 
-/* Structure for Player Search Bio */
-.playerImg
-{
-  border-radius: 6%;
-  margin-left: 5% ;
-  
-}
-
-/* Player Text Info */
-#playerInfo
-{
-  margin-left: 5%;
-}
 
 /* footer
 {
