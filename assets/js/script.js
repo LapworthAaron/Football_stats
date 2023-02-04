@@ -389,6 +389,7 @@ function playerBtns(playerList) {
     }
     // clear history button
     var removeListDiv = $('<div>').attr({'id':'clearSearch','class':'clearSearch'});
+    asideHistory.append(removeListDiv);
     var remove = $('<button>');
     remove.attr({'type':'button',
                     'aria-label': 'clear history button',
@@ -400,6 +401,13 @@ function playerBtns(playerList) {
 
     // on button clicks
     $('.recentSearchPlayers').unbind('click').on('click',playerSearch);
-    // $('#clearSearchHistory').unbind('click').on('click',clearHistory);
+    // TODO: clear history functionality
+    $('#clearSearchHistory').unbind('click').on('click',clearHistory);
     return;
+}
+
+//
+function clearHistory() {
+    $('#borderPlayerSearch').empty();
+    localStorage.clear("playerList");
 }
