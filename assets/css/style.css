@@ -197,6 +197,7 @@ h2,h3,h4,h5,p
 /* Navigation Bar CSS */
 #landingBtn {
   border-radius: 5px;
+  cursor: pointer;
 }
 #mainNav {
   transition: all .35s;
@@ -301,7 +302,7 @@ h2,h3,h4,h5,p
 }
 
 #landingBtn:focus, #updateBtnLeague:focus, #updateBtnSchedule:focus, #searchBtnPlayer:focus {
-  color: #F5F5F5;
+  color: #363636;
 }
 
 #landingBtn:hover, #updateBtnLeague:hover, #updateBtnSchedule:hover, #searchBtnPlayer:hover,
