@@ -107,23 +107,42 @@ h2,h3,h4,h5,p
 {
   grid-area: heading;
   margin-top: 5%;
-  margin-left: 5%;
+  margin-left: 8%;
 }
 
 /* styling player image profile */
 .playerImg img
 {
-  border-radius: 100%;
-  border: 1px dotted var(--searchSecondaryColor);
+  border-radius: 25%;
+  border: 3px solid var(--textColor);
   overflow: hidden;
   width: 30%;
-  box-shadow:-4px 6px 10px var(--brandcolor);
+  /* box-shadow: 0px 0px 3px var(--brandcolor); */
   margin-top: 5%;
   margin-left: 10%;
 }
 
+.playerBio
+{
+  margin-right: 20%;
+}
 
+.playerinfo
+{
+  margin-top: -20%;
+}
+#recentSearchPlayers
+{
+  background-color: var(--searchColor);
+  color: var(--searchSecondaryColor);
+  border: 2px solid var(--secondaryBrandColor);
+}
 
+#recentSearchPlayers:hover
+{
+  background-color: var(--brandcolor);
+  color: var(--secondaryBrandColor);
+}
 
 #recentSearch
 {
@@ -137,9 +156,17 @@ h2,h3,h4,h5,p
     'recentSearchItem1'
     'recentSearchItem2'
     'recentSearchItem3'
-    'recentSearchItem4';
+    'recentSearchItem4'
+    'clearSearchHistory';
+    grid-gap: 1%;
 }
 
+#clearSearchHistory
+{
+  background-color: ;
+}
+
+ 
 .recentSearchItems
 {
     width: fit-content;
@@ -149,20 +176,19 @@ h2,h3,h4,h5,p
 
 #recentSearchItem1
 {
-   
-    grid-area: recentSearchItem1 ;
+  grid-area: recentSearchItem1 ;
 }
 #recentSearchItem2
 {
-    grid-area: recentSearchItem2 ;   
+  grid-area: recentSearchItem2 ;   
 }
 #recentSearchItem3
 {
-    grid-area: recentSearchItem3 ;
+  grid-area: recentSearchItem3 ;
 }
 #recentSearchItem4
 {
-    grid-area: recentSearchItem4 ;
+  grid-area: recentSearchItem4 ;
 }
 
 
@@ -280,7 +306,8 @@ h2,h3,h4,h5,p
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #363636;
+  background-color: var(--secondaryBrandColor);
+  border-bottom: 4px solid var(--brandcolor);
   height: 75px;
   color: #F5F5F5;
   font-family:'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
@@ -294,11 +321,12 @@ h2,h3,h4,h5,p
   border-radius: 2px;
 }
 
-#updateBtnLeague, #updateBtnSchedule, #searchBtnPlayer {
-  font-size: 20px;
+#updateBtnLeague, #updateBtnSchedule, #searchBtnPlayer 
+{
+  /* font-size: 20px; */
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: bolder;
   border-radius: 5px;
 }
 
