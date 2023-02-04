@@ -6,7 +6,7 @@
 #leagueTable,
 #schedule,
 #playerSearch {
-    background-color: dimgrey;
+    background-color: rgba(36, 36, 36, 0.755);
     color:#F5F5F5;
     height: auto;
 }
@@ -310,6 +310,90 @@ h2,h3,h4,h5,p
   color: rgb(124, 116, 116);
   box-shadow: 0 5px 15px rgb(255, 255, 255);
 
+}
+
+/* Schdedule CSS */
+.youTubeBtn img {
+  margin-left: 20px;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.fixtureTitle {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.fixtureTitle h1 {
+  font-weight: 900;
+}
+
+.fixtureTitle h2 {
+  font-weight: 600;
+}
+
+.fixtureLogistics {
+  width: 30%;
+  display: flex;
+  flex-direction: column-reverse;
+  border-right: solid;
+}
+
+.scheduleDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: solid;
+}
+
+.scheduleDiv tr {
+  align-self: flex-start;
+}
+
+.scheduleDiv td {
+  align-self: flex-end;
+}
+
+.scheduleDiv h3 {
+  width: 30px;
+  align-self: flex-start;
+  align-self: center;
+}
+
+.scheduleDiv h5 {
+align-self: center;
+font-weight: 900;
+}
+
+.scheduleDiv h6 {
+  align-self: center;
+
+}
+
+.fixtureTeam {
+width: 70%;
+display: flex;
+justify-content:space-around;
+}
+
+.fixtureTeam td {
+  text-align: center;
+  width:33%;
+  font-weight: 600;
+  font-size: large;
+}
+
+.scoreMiddle {
+  width: 33%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.scoreMiddle h3 {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  color: #101820;
 }
 
 
