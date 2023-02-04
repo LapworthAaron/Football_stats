@@ -334,6 +334,7 @@ h2,h3,h4,h5,p
 }
 
 .fixtureLogistics {
+  padding: 10px 0;
   width: 30%;
   display: flex;
   flex-direction: column-reverse;
@@ -352,7 +353,7 @@ h2,h3,h4,h5,p
 }
 
 .scheduleDiv td {
-  align-self: flex-end;
+  align-self: center;
 }
 
 .scheduleDiv h3 {
@@ -362,16 +363,19 @@ h2,h3,h4,h5,p
 }
 
 .scheduleDiv h5 {
+margin-left: 10px;
+margin-right: 10px;
+text-align: center;
 align-self: center;
 font-weight: 900;
 }
 
 .scheduleDiv h6 {
   align-self: center;
-
 }
 
 .fixtureTeam {
+padding: 10px 0;
 width: 70%;
 display: flex;
 justify-content:space-around;
