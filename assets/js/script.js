@@ -265,12 +265,12 @@ function playerSearch(event) {
     var queryUrl;
     if ($('#playerSearchInput').val() == '') {
         var playerInput = 'p=' + encodeURIComponent(event.target.innerText);
-        console.log(playerInput);
+        // console.log(playerInput);
         queryUrl = playerUrl + playerInput;
     } else {
         var playerInput = 'p=' + encodeURIComponent($('#playerSearchInput').val());
         queryUrl = playerUrl + playerInput;
-        console.log(playerInput);
+        // console.log(playerInput);
     }
 
     $('#playerSearch').empty();
@@ -281,7 +281,7 @@ function playerSearch(event) {
     })
     .then(function (response) {
         if (response.player[0].strSport == 'Soccer') {
-            console.log(response);
+            // console.log(response);
             var article = $('<article>').attr('id','playerResultsItem');
             $('#playerSearch').append(article);
             $('<h3>').text(' Search Results ').appendTo(article);
