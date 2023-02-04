@@ -47,7 +47,7 @@ function showPlayerPage() {
         'hidden','hidden','hidden','show',
         'hidden','hidden','show',
         'hidden','hidden','hidden','show');
-
+    getPlayerList();
     $('#searchBtnPlayer').unbind('click').on('click',playerSearch);
 }
 
@@ -261,9 +261,13 @@ function scheduleDynamic(response) {
 // Player Search section
 ///////////////////////////
 // function to get player details and populate to screen
-function playerSearch() {
-    var playerInput = 'p=' + encodeURIComponent($('#playerSearchInput').val());
-    var queryUrl = playerUrl + playerInput;
+function playerSearch(event) {
+    if ($('#playerSearchInput').val() == null) {
+        console.log(event.target);
+    } else {
+        var playerInput = 'p=' + encodeURIComponent($('#playerSearchInput').val());
+        var queryUrl = playerUrl + playerInput;
+    }
     console.log(playerInput);
     $('#playerSearch').empty();
 
@@ -311,8 +315,86 @@ function playerHtml(response) {
     var divInfo = $('<div>').attr({'id':'playerInfo','class':'playerInfo'})
     .appendTo($("#playerResultsItem"));
 
+    storePlayers(response.player[0].strPlayer);
     
     var title = $('<h3>').text('Profile:');
     var desc = $('<h3>').text(response.player[0].strDescriptionEN);
     divInfo.append(title, desc);
+}
+
+// Player Search History
+//function to store city searched into localStorage
+function storePlayers(player) {
+    var playerList = {list: []};
+    if (localStorage.getItem("playerList") == undefined) {
+        playerList.list.push(player);
+        localStorage.setItem("playerList", JSON.stringify(playerList));
+        getPlayerList();
+        return;
+    }
+    
+    playerList = JSON.parse(localStorage.getItem("playerList"));
+    if (!playerList.list.includes(player)) {
+        playerList.list.push(player);
+        localStorage.setItem("playerList", JSON.stringify(playerList));
+        getPlayerList();
+        return;
+    }
+    getPlayerList();
+    return;
+}
+
+//function to read city from localStorage
+function getPlayerList() {
+    var playerList;
+    if (localStorage.getItem("playerList") != undefined) {
+        playerList =  JSON.parse(localStorage.getItem("playerList"));
+        playerBtns(playerList);
+        console.log(playerList);
+        return;
+    }
+    return;
+}
+
+//function to create city buttons
+function playerBtns(playerList) {
+    $('#playerSearch').empty();
+    // aside for the recent search area
+    var asideHistory = $('<aside>').attr({'class':'borderPlayerSearch','id':'borderPlayerSearch'});
+    $('#playerSearch').append(asideHistory);
+    // Heading
+    var headingDiv = $('<div>').attr({'id':'recentSearch','class':'recentSearch'});
+    asideHistory.append(headingDiv);
+    var headingH3 = $('<h3>').text('Recent Searches');
+    headingDiv.appendTo(headingH3);
+    // Button area
+    var playerListDiv = $('<div>').attr({'id':'recentSearchItems','class':'recentSearchItems'});
+    asideHistory.append(playerListDiv);
+    for (var i = 0; i < playerList.list.length; i++) {
+        var playerDiv = $('<div>').attr({'id':'recentSearchItem' + i});
+        playerListDiv.append(playerDiv);
+        var playerBtn = $('<button>');
+        playerBtn.attr({'type':'button',
+                    'aria-label':playerList.list[i],
+                    'class':'btn btn-light recentSearchPlayers',
+                    'id':'recentSearchPlayers_' + i});
+        var playerBtnH4 = $('<h4>').text(playerList.list[i]);
+        playerBtn.append(playerBtnH4);
+        playerDiv.append(playerBtn);
+    }
+    // clear history button
+    var removeListDiv = $('<div>').attr({'id':'clearSearch','class':'clearSearch'});
+    var remove = $('<button>');
+    remove.attr({'type':'button',
+                    'aria-label': 'clear history button',
+                    'class':'btn btn-alert',
+                    'id':'clearSearchHistory'});
+    var clearBtnH4 = $('<h4>').text('Clear Recent Searches');
+    remove.append(clearBtnH4);
+    removeListDiv.append(remove);
+
+    // on button clicks
+    $('.recentSearchPlayers').unbind('click').on('click',playerSearch);
+    // $('#clearSearchHistory').unbind('click').on('click',clearHistory);
+    return;
 }
