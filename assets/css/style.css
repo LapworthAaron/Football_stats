@@ -6,8 +6,8 @@
 #leagueTable,
 #schedule,
 #playerSearch {
-    background-color: dimgrey;
-    color:#F5F5F5;
+    background-color: var(--secondaryBrandColor);
+    color: var(--secondaryTextColor);
     height: auto;
 }
 
@@ -15,7 +15,7 @@
 :root
 {
     --brandcolor: #9CCC65;
-    --secondaryBrandColor: #311B92;
+    --secondaryBrandColor: #15202B;
     --textColor: #101820;
     --secondaryTextColor: #ffffff;
     --searchColor: #ffffff;
@@ -46,8 +46,7 @@ h1
 
 h2,h3,h4,h5,p
 {
-    font-family: 'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
-    
+    font-family: 'Questrial' sans-serif, 'Montserrat' , 'Lato', 'Open Sans';
 }
 
 #searchInput[type=text] 
@@ -107,15 +106,25 @@ h2,h3,h4,h5,p
 #playerResultsItem h3 
 {
   grid-area: heading;
+  margin-top: 5%;
+  margin-left: 5%;
 }
 
+/* styling player image profile */
 .playerImg img
 {
   border-radius: 100%;
   border: 1px dotted var(--searchSecondaryColor);
   overflow: hidden;
-  width: 20%;
+  width: 30%;
+  box-shadow:-4px 6px 10px var(--brandcolor);
+  margin-top: 5%;
+  margin-left: 10%;
 }
+
+
+
+
 #recentSearch
 {
     grid-area: recentSearch ;
