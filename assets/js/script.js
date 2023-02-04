@@ -262,13 +262,17 @@ function scheduleDynamic(response) {
 ///////////////////////////
 // function to get player details and populate to screen
 function playerSearch(event) {
-    if ($('#playerSearchInput').val() == null) {
-        console.log(event.target);
+    var queryUrl;
+    if ($('#playerSearchInput').val() == '') {
+        var playerInput = 'p=' + encodeURIComponent(event.target.innerText);
+        console.log(playerInput);
+        queryUrl = playerUrl + playerInput;
     } else {
         var playerInput = 'p=' + encodeURIComponent($('#playerSearchInput').val());
-        var queryUrl = playerUrl + playerInput;
+        queryUrl = playerUrl + playerInput;
+        console.log(playerInput);
     }
-    console.log(playerInput);
+
     $('#playerSearch').empty();
 
     // TODO: validate empty inputs
@@ -277,7 +281,7 @@ function playerSearch(event) {
     })
     .then(function (response) {
         if (response.player[0].strSport == 'Soccer') {
-            // console.log(response);
+            console.log(response);
             var article = $('<article>').attr('id','playerResultsItem');
             $('#playerSearch').append(article);
             $('<h3>').text(' Search Results ').appendTo(article);
@@ -291,6 +295,7 @@ function playerSearch(event) {
             $('<h4>').text('"' + $('#playerSearchInput').val() + '" does not exist ').appendTo(article);
         }
     });
+    $('#playerSearchInput').val('');
 }
 
 // function to populate api data to HTML elements
@@ -350,7 +355,7 @@ function getPlayerList() {
     if (localStorage.getItem("playerList") != undefined) {
         playerList =  JSON.parse(localStorage.getItem("playerList"));
         playerBtns(playerList);
-        console.log(playerList);
+        // console.log(playerList);
         return;
     }
     return;
@@ -358,7 +363,7 @@ function getPlayerList() {
 
 //function to create city buttons
 function playerBtns(playerList) {
-    $('#playerSearch').empty();
+    $('#borderPlayerSearch').empty();
     // aside for the recent search area
     var asideHistory = $('<aside>').attr({'class':'borderPlayerSearch','id':'borderPlayerSearch'});
     $('#playerSearch').append(asideHistory);
