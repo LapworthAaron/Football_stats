@@ -371,7 +371,7 @@ function playerBtns(playerList) {
     var headingDiv = $('<div>').attr({'id':'recentSearch','class':'recentSearch'});
     asideHistory.append(headingDiv);
     var headingH3 = $('<h3>').text('Recent Searches');
-    headingDiv.appendTo(headingH3);
+    headingDiv.append(headingH3);
     // Button area
     var playerListDiv = $('<div>').attr({'id':'recentSearchItems','class':'recentSearchItems'});
     asideHistory.append(playerListDiv);
@@ -401,7 +401,6 @@ function playerBtns(playerList) {
 
     // on button clicks
     $('.recentSearchPlayers').unbind('click').on('click',playerSearch);
-    // TODO: clear history functionality
     $('#clearSearchHistory').unbind('click').on('click',clearHistory);
     return;
 }
