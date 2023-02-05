@@ -336,6 +336,11 @@ function scheduleRound() {
 
         $.ajax(settings).done(function (response) {
           console.log(response);
+
+          response.items.forEach(item=>{
+           var itemTitle = $('<p>').text(item.snippet.title)
+            $('#modal-body').append(itemTitle);
+          })
         });
       });
     });

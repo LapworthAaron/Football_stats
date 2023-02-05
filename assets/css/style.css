@@ -410,8 +410,7 @@ p {
 .modal-window {
   color: black;
   background-color: white;
-  height: 100px;
-  width: 100px;
+  max-width: max-content;
   margin: 25% auto;
 }
 
