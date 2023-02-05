@@ -401,3 +401,11 @@ justify-content:space-around;
 }
 
 
+
+/* tempTable */
+
+#fixtureTable {
+  border: 1px solid red;
+  width: 100%;
+
+}
