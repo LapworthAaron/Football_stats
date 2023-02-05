@@ -4,12 +4,18 @@
 }
 
 #leagueTable,
-#schedule,
 #playerSearch {
-  background-color: rgba(36, 36, 36, 0.755);
+  background-color: var(--table_one_colour);
   color: #f5f5f5;
   height: auto;
 }
+
+#schedule {
+    background-color: var(--table_one_colour);
+    color: #f5f5f5;
+    height: auto;
+}
+
 
 /* ADIL'S CSS */
 
@@ -18,12 +24,12 @@
     --brandcolor: #9CCC65;
     --secondaryBrandColor: #311B92;
     --textColor: #101820;
-    --secondaryTextColor: #ffffff;
-    --searchColor: #ffffff;
-    --searchSecondaryColor: #101820;
-    --table_one_colour: rgb(27,38,59);
-    --table_two_colour: rgb(65,90,119);
-    --table_three_colour: rgb(114,9,183);
+    --secondaryTextColor: #f0f0f0;
+    --searchColor: #f0f0f0;
+    --searchSecondaryColor: rgba(255,255,255, 0.3);
+    --table_one_colour: rgba(36, 36, 36, 0.755);
+    --table_two_colour: rgba(36, 36, 36, 0.755);
+    --table_three_colour: rgba(36, 36, 36, 0.755);
 }
 
 /* Page theme - background image */
@@ -316,93 +322,30 @@ p {
   max-height: 50px;
 }
 
-/* .fixtureTitle {
+#fixtureTitle {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.fixtureTitle h1 {
+#fixtureTitle h1 {
   font-weight: 900;
 }
 
-.fixtureTitle h2 {
+#fixtureTitle h2 {
   font-weight: 600;
 }
 
-.fixtureLogistics {
-  padding: 10px 0;
-  width: 30%;
-  display: flex;
-  flex-direction: column-reverse;
-  border-right: solid;
-}
-
-.scheduleDiv {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-top: solid;
-}
-
-.scheduleDiv tr {
-  align-self: flex-start;
-}
-
-.scheduleDiv td {
-  align-self: center;
-}
-
-.scheduleDiv h3 {
-  width: 30px;
-  align-self: flex-start;
-  align-self: center;
-}
-
-.scheduleDiv h5 {
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center;
-  align-self: center;
-  font-weight: 900;
-}
-
-.scheduleDiv h6 {
-  align-self: center;
-}
-
-.fixtureTeam {
-  padding: 10px 0;
-  width: 70%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.fixtureTeam td {
-  text-align: center;
-  width: 33%;
-  font-weight: 600;
-  font-size: large;
-}
-
-.scoreMiddle {
-  width: 33%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.scoreMiddle h3 {
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  color: #101820;
-} */
-
-/* tempTable */
-
-#fixtureTable {
+#fixtureTable{
   width: 100%;
+  font-weight: 600;
 }
 
+#fixtureTableBody {
+  margin-left: 10px;
+}
+
+/* Modal Styling */
 
 #modal-background {
   position: fixed;
@@ -411,7 +354,7 @@ p {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(36, 36, 36, 0.755);
+  background-color: var(--table_one_colour);
 }
 
 .modal-window {
@@ -425,7 +368,6 @@ p {
   display: flex;
   padding: 0 5px;
   justify-content: flex-end;
-  /* border: 1px solid red; */
 }
 
 #close-modal span {
@@ -444,20 +386,18 @@ main{
 /* ---------------------------- */
 /* ---------------------------- */
 /* league table start */
-:root {
-	--table_one_colour: rgb(27,38,59);
-  --table_two_colour: rgb(65,90,119);
-  --table_three_colour: rgb(114,9,183);
-}
 
+#dynamicTable {
+  width: 100%;
+}
 table {
     font-family: Arial, Helvetica, sans-serif;
-    border: 10px solid var(--searchSecondaryColor);
+    border: 2px solid var(--searchSecondaryColor);
     border-collapse: collapse;
 }
 
 table tr {
-    border: 5px solid var(--searchSecondaryColor);
+    border-bottom: 2px solid var(--searchSecondaryColor);
     border-collapse: collapse;
 }
 
@@ -504,7 +444,3 @@ table tr td div {
     color: red;
     font-weight: bolder;
 }
-/* league table start */
-/* ---------------------------- */
-/* ---------------------------- */
-
