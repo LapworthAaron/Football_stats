@@ -65,9 +65,6 @@
           <option value="2022-2023">2022-2023</option>
           <option value="2021-2022">2021-2022</option>
           <option value="2020-2021">2020-2021</option>
-          <option value="2019-2020">2019-2020</option>
-          <option value="2018-2019">2018-2019</option>
-          <option value="2017-2018">2017-2018</option>
         </select>
       </div>
 
@@ -79,7 +76,7 @@
       <!-- text input for player search id="playerSearchInput" -->
       <div class="hidden" id="playerSearchDiv">
         <label for="player">Player Name:</label>
-        <input type="search" id="playerSearchInput" placeholder="Eric Cantona"/>
+        <input type="search" id="playerSearchInput" placeholder="Eric Cantona" />
       </div>
       <!--Dropdown-->
       <button type="button" id="updateBtnLeague">Update</button>
@@ -135,11 +132,26 @@
 
     <!-- Schedule Section -->
     <section id="schedule" class="hidden">
+      <div id="fixtureTitle"></div>
+      <table id="fixtureTable">
+        <thead id="tHead">
+        </thead>
+        <tbody id="fixtureTableBody">
+        </tbody>
+      </table>
+      <div id="modal-background" class="hidden">
+        <div class="modal-window">
+          <div id="close-modal"><span id="modalX">X</span></div>
+        <div id="modal-body"></div>
+        </div>
+
+      </div>
 
     </section>
 
     <!-- Player Search Section -->
     <section id="playerSearch" class="hidden">
+
 
     </section>
 

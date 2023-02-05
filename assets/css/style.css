@@ -6,12 +6,13 @@
 #leagueTable,
 #schedule,
 #playerSearch {
-    background-color: dimgrey;
-    color:#F5F5F5;
-    height: auto;
+  background-color: rgba(36, 36, 36, 0.755);
+  color: #f5f5f5;
+  height: auto;
 }
 
 /* ADIL'S CSS */
+
 :root
 {
     --brandcolor: #9CCC65;
@@ -32,123 +33,107 @@
 }
 
 /*setting style accross the entire page to be used globally*/
-*
-{
-    scroll-behavior: smooth;
+* {
+  scroll-behavior: smooth;
 }
 
-h1
-{
-    font-family: 'Prompt' sans-serif ,'Raleway' , 'Open Sans';
-    font-weight: bolder;
+h1 {
+  font-family: "Prompt" sans-serif, "Raleway", "Open Sans";
+  font-weight: bolder;
+}
+
+h2,
+h3,
+h4,
+h5,
+p {
+  font-family: "Questrial", "Montserrat", "Lato", "Open Sans";
+}
+
+#searchInput[type="text"] {
+  padding: 10px;
+  font-size: 1.1em;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: var(--searchColor);
+}
+
+#searchBtn {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: var(--searchColor);
+  color: var(--secondaryBrandColor);
+  font-size: 1.1em;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
 }
 
 
-h2,h3,h4,h5,p
-{
-    font-family: 'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
-    
+#searchBtn:hover {
+  background-color: var(--secondaryBrandColor);
+  color: var(--brandcolor);
 }
 
-#searchInput[type=text] 
-{
-    padding: 10px;
-    font-size: 1.1em;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: var(--searchColor);
-}
-  
-#searchBtn
-{
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: var(--searchColor);
-    color: var(--secondaryBrandColor);
-    font-size: 1.1em;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-   
-}
-  
-#searchBtn:hover 
-{
-    background-color: var(--secondaryBrandColor);
-    color: var(--brandcolor);
+#playerSearch {
+  margin-left: 5%;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 75% 25%;
+  grid-template-areas: "playerResultsItem recentSearch";
 }
 
-#playerSearch
-{
-    margin-left: 5%;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 75% 25%;
-    grid-template-areas: 
-    'playerResultsItem recentSearch';
+#playerResultsItem {
+  grid-area: playerResultsItem;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  /* grid-template-areas: 'playerInfo'; */
 }
 
-#playerResultsItem
-{
-    grid-area: playerResultsItem ;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    /* grid-template-areas: 'playerInfo'; */
-}
-#recentSearch
-{
-    grid-area: recentSearch ;
-    margin-right: 20% ;
-    margin-left: 10%;
-    display:grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-    grid-template-areas:
-    'recentSearchItem1'
-    'recentSearchItem2'
-    'recentSearchItem3'
-    'recentSearchItem4';
+#recentSearch {
+  grid-area: recentSearch;
+  margin-right: 20%;
+  margin-left: 10%;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "recentSearchItem1"
+    "recentSearchItem2"
+    "recentSearchItem3"
+    "recentSearchItem4";
 }
 
-.recentSearchItems
-{
-    width: fit-content;
-    margin-left: 10%;
-    margin-top: 10%;
+.recentSearchItems {
+  width: fit-content;
+  margin-left: 10%;
+  margin-top: 10%;
 }
 
-#recentSearchItem1
-{
-   
-    grid-area: recentSearchItem1 ;
+#recentSearchItem1 {
+  grid-area: recentSearchItem1;
 }
-#recentSearchItem2
-{
-    grid-area: recentSearchItem2 ;   
+#recentSearchItem2 {
+  grid-area: recentSearchItem2;
 }
-#recentSearchItem3
-{
-    grid-area: recentSearchItem3 ;
+#recentSearchItem3 {
+  grid-area: recentSearchItem3;
 }
-#recentSearchItem4
-{
-    grid-area: recentSearchItem4 ;
+#recentSearchItem4 {
+  grid-area: recentSearchItem4;
 }
 
 /* Structure for Player Search Bio */
-.playerImg
-{
+.playerImg {
   border-radius: 6%;
-  margin-left: 5% ;
-  
+  margin-left: 5%;
 }
 
 /* Player Text Info */
-#playerInfo
-{
+#playerInfo {
   margin-left: 5%;
 }
 
@@ -171,13 +156,13 @@ h2,h3,h4,h5,p
 }
 
 .landingPage h1 {
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-size: 68px;
   font-weight: 600;
 }
 
 .landingPage h2 {
-  color: #F5F5F5;
+  color: #f5f5f5;
   margin-bottom: 50px;
 }
 
@@ -195,15 +180,16 @@ h2,h3,h4,h5,p
 /* Navigation Bar CSS */
 #landingBtn {
   border-radius: 5px;
+  cursor: pointer;
 }
 #mainNav {
-  transition: all .35s;
+  transition: all 0.35s;
   font-weight: 200;
   letter-spacing: 1px;
 }
 
 #mainNav .navbar-brand {
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -211,10 +197,10 @@ h2,h3,h4,h5,p
 #mainNav .navbar-toggler {
   font-size: 20px;
   padding: 8px 10px;
-  color: #F5F5F5;
+  color: #f5f5f5;
 }
 
-#mainNav .navbar-nav>li>a {
+#mainNav .navbar-nav > li > a {
   font-size: 20px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -222,30 +208,28 @@ h2,h3,h4,h5,p
   border-radius: 5px;
 }
 
-#mainNav .navbar-nav>li>a.active {
-  color: #F5F5F5 !important;
+#mainNav .navbar-nav > li > a.active {
+  color: #f5f5f5 !important;
   background-color: transparent;
 }
 
-
-#mainNav .navbar-nav>li>a.active:hover {
+#mainNav .navbar-nav > li > a.active:hover {
   background-color: transparent;
 }
 
-#mainNav .navbar-nav>li>a,
-#mainNav .navbar-nav>li>a:focus {
-  color: #F5F5F5;
+#mainNav .navbar-nav > li > a,
+#mainNav .navbar-nav > li > a:focus {
+  color: #f5f5f5;
 }
 
-#mainNav .navbar-nav>li>a:hover,
-#mainNav .navbar-nav>li>a:focus:hover {
+#mainNav .navbar-nav > li > a:hover,
+#mainNav .navbar-nav > li > a:focus:hover {
   color: rgb(124, 116, 116);
   box-shadow: 0 5px 15px rgb(255, 255, 255);
-
 }
 
 .navbar a {
-  font-family: 'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
+  font-family: "Questrial", "Montserrat", "Lato", "Open Sans";
   font-size: 28px;
   font-weight: 900 !important;
   margin-left: 10px;
@@ -257,8 +241,7 @@ h2,h3,h4,h5,p
 }
 
 /* Hiding the tabs*/
-.hidden
-{
+.hidden {
   display: none !important;
 }
 
@@ -268,19 +251,24 @@ h2,h3,h4,h5,p
   align-items: center;
   background-color: #363636;
   height: 75px;
-  color: #F5F5F5;
-  font-family:'Questrial', 'Montserrat' , 'Lato', 'Open Sans';
+  color: #f5f5f5;
+  font-family: "Questrial", "Montserrat", "Lato", "Open Sans";
   font-weight: 900;
   font-size: 18px;
 }
 
-#leagues, #season, #gameweek, #searchPlayer {
+#leagues,
+#season,
+#gameweek,
+#searchPlayer {
   margin-top: 10px;
   margin-left: 25px;
   border-radius: 2px;
 }
 
-#updateBtnLeague, #updateBtnSchedule, #searchBtnPlayer {
+#updateBtnLeague,
+#updateBtnSchedule,
+#searchBtnPlayer {
   font-size: 20px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -288,27 +276,171 @@ h2,h3,h4,h5,p
   border-radius: 5px;
 }
 
-#landingBtn.active, #updateBtnLeague.active, #updateBtnSchedule.active, #searchBtnPlayer.active {
-  color: #F5F5F5;
+#landingBtn.active,
+#updateBtnLeague.active,
+#updateBtnSchedule.active,
+#searchBtnPlayer.active {
+  color: #f5f5f5;
   background-color: transparent;
 }
 
-
-#landingBtn.active:hover, #updateBtnLeague.active:hover, #updateBtnSchedule.active:hover, #searchBtnPlayer.active:hover  {
+#landingBtn.active:hover,
+#updateBtnLeague.active:hover,
+#updateBtnSchedule.active:hover,
+#searchBtnPlayer.active:hover {
   background-color: transparent;
 }
 
-#landingBtn:focus, #updateBtnLeague:focus, #updateBtnSchedule:focus, #searchBtnPlayer:focus {
-  color: #F5F5F5;
+#landingBtn:focus,
+#updateBtnLeague:focus,
+#updateBtnSchedule:focus,
+#searchBtnPlayer:focus {
+  color: #363636;
 }
 
-#landingBtn:hover, #updateBtnLeague:hover, #updateBtnSchedule:hover, #searchBtnPlayer:hover,
-#updateBtnLeague:focus:hover, #updateBtnSchedule:focus:hover, #searchBtnPlayer:focus:hover {
+#landingBtn:hover,
+#updateBtnLeague:hover,
+#updateBtnSchedule:hover,
+#searchBtnPlayer:hover,
+#updateBtnLeague:focus:hover,
+#updateBtnSchedule:focus:hover,
+#searchBtnPlayer:focus:hover {
   color: rgb(124, 116, 116);
   box-shadow: 0 5px 15px rgb(255, 255, 255);
+}
+
+/* Schdedule CSS */
+.youTubeBtn img {
+  margin-left: 20px;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+/* .fixtureTitle {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.fixtureTitle h1 {
+  font-weight: 900;
+}
+
+.fixtureTitle h2 {
+  font-weight: 600;
+}
+
+.fixtureLogistics {
+  padding: 10px 0;
+  width: 30%;
+  display: flex;
+  flex-direction: column-reverse;
+  border-right: solid;
+}
+
+.scheduleDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: solid;
+}
+
+.scheduleDiv tr {
+  align-self: flex-start;
+}
+
+.scheduleDiv td {
+  align-self: center;
+}
+
+.scheduleDiv h3 {
+  width: 30px;
+  align-self: flex-start;
+  align-self: center;
+}
+
+.scheduleDiv h5 {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  align-self: center;
+  font-weight: 900;
+}
+
+.scheduleDiv h6 {
+  align-self: center;
+}
+
+.fixtureTeam {
+  padding: 10px 0;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fixtureTeam td {
+  text-align: center;
+  width: 33%;
+  font-weight: 600;
+  font-size: large;
+}
+
+.scoreMiddle {
+  width: 33%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.scoreMiddle h3 {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  color: #101820;
+} */
+
+/* tempTable */
+
+#fixtureTable {
+  width: 100%;
+}
+
+
+#modal-background {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(36, 36, 36, 0.755);
+}
+
+.modal-window {
+  color: black;
+  background-color: white;
+  max-width: max-content;
+  margin: 10% auto;
+}
+
+#close-modal {
+  display: flex;
+  padding: 0 5px;
+  justify-content: flex-end;
+  /* border: 1px solid red; */
+}
+
+#close-modal span {
+  cursor: pointer;
+}
+
+#close-modal span:hover{
+  transform: scale(1.1);
 
 }
 
+main{
+  position: relative;
+  height: 100vh;
+}
 /* ---------------------------- */
 /* ---------------------------- */
 /* league table start */
@@ -375,3 +507,4 @@ table tr td div {
 /* league table start */
 /* ---------------------------- */
 /* ---------------------------- */
+
