@@ -315,6 +315,7 @@ function scheduleRound() {
 
     ytButtonsArray.forEach((button) => {
       button.addEventListener("click", (e) => {
+        $("#modal-background").removeClass("hidden");
         const {date, homet, scoreh, awayt, scorea} = e.target.dataset
         var search = `${date} ${homet} ${scoreh} : ${scorea} ${awayt}`;
         console.log(search);
@@ -340,6 +341,17 @@ function scheduleRound() {
     });
   });
 }
+
+// modal close onclick
+document.addEventListener("click", function(event){
+    if (event.target.id === 'modal-background'){
+        $('#modal-background').addClass("hidden");
+    }
+})
+
+$("#modalX").on("click", function(event){
+    $('#modal-background').addClass("hidden");
+})
 
 // empty schedule section, construct url and call ajax
 // function scheduleRound() {

@@ -397,8 +397,8 @@ p {
   width: 100%;
 }
 
-.modal-background {
-  position: absolute;
+#modal-background {
+  position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
@@ -408,10 +408,27 @@ p {
 }
 
 .modal-window {
+  color: black;
   background-color: white;
   height: 100px;
   width: 100px;
   margin: 25% auto;
+}
+
+#close-modal {
+  display: flex;
+  padding: 0 5px;
+  justify-content: flex-end;
+  /* border: 1px solid red; */
+}
+
+#close-modal span {
+  cursor: pointer;
+}
+
+#close-modal span:hover{
+  transform: scale(1.1);
+
 }
 
 main{

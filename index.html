@@ -76,7 +76,7 @@
       <!-- text input for player search id="playerSearchInput" -->
       <div class="hidden" id="playerSearchDiv">
         <label for="player">Player Name:</label>
-        <input type="search" id="playerSearchInput" placeholder="Eric Cantona"/>
+        <input type="search" id="playerSearchInput" placeholder="Eric Cantona" />
       </div>
       <!--Dropdown-->
       <button type="button" id="updateBtnLeague">Update</button>
@@ -139,11 +139,13 @@
         <tbody id="fixtureTableBody">
         </tbody>
       </table>
-
-      <div class="modal-background">
-        <div class="modal-window"></div>
+      <div id="modal-background" class="hidden">
+        <div class="modal-window">
+          <div id="close-modal"><span id="modalX">X</span></div>
+        </div>
 
       </div>
+
     </section>
 
     <!-- Player Search Section -->
@@ -162,7 +164,7 @@
 
       <aside class="borderPlayerSearch">
         <div id="recentSearch">
-          
+
           <h3>Recent Searches</h3>
         </div>
         <div class="recentSearchItems">
@@ -201,12 +203,12 @@
             <button type="button" class="btn btn-alert" id="clearSearchHistory"></button>
           </div>
 
-          </div>
+        </div>
         </div>
       </aside>
     </section>
 
-    
+
 
     <!-- Random Modal Bootstrap Template - could be useful? -->
     <!-- <div class="modal" tabindex="-1">
