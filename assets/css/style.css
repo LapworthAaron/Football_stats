@@ -12,13 +12,18 @@
 }
 
 /* ADIL'S CSS */
-:root {
-  --brandcolor: #9ccc65;
-  --secondaryBrandColor: #311b92;
-  --textColor: #101820;
-  --secondaryTextColor: #ffffff;
-  --searchColor: #ffffff;
-  --searchSecondaryColor: #101820;
+
+:root
+{
+    --brandcolor: #9CCC65;
+    --secondaryBrandColor: #311B92;
+    --textColor: #101820;
+    --secondaryTextColor: #ffffff;
+    --searchColor: #ffffff;
+    --searchSecondaryColor: #101820;
+    --table_one_colour: rgb(27,38,59);
+    --table_two_colour: rgb(65,90,119);
+    --table_three_colour: rgb(114,9,183);
 }
 
 /* Page theme - background image */
@@ -66,6 +71,7 @@ p {
   cursor: pointer;
 }
 
+
 #searchBtn:hover {
   background-color: var(--secondaryBrandColor);
   color: var(--brandcolor);
@@ -86,6 +92,7 @@ p {
   grid-template-rows: auto;
   /* grid-template-areas: 'playerInfo'; */
 }
+
 #recentSearch {
   grid-area: recentSearch;
   margin-right: 20%;
@@ -396,6 +403,7 @@ p {
   width: 100%;
 }
 
+
 #modal-background {
   position: fixed;
   z-index: 1;
@@ -433,3 +441,70 @@ main{
   position: relative;
   height: 100vh;
 }
+/* ---------------------------- */
+/* ---------------------------- */
+/* league table start */
+:root {
+	--table_one_colour: rgb(27,38,59);
+  --table_two_colour: rgb(65,90,119);
+  --table_three_colour: rgb(114,9,183);
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 10px solid var(--searchSecondaryColor);
+    border-collapse: collapse;
+}
+
+table tr {
+    border: 5px solid var(--searchSecondaryColor);
+    border-collapse: collapse;
+}
+
+th,
+table tr td {
+    border-left: 1px solid var(--searchSecondaryColor);
+    border-right: 1px solid var(--searchSecondaryColor);
+    border-collapse: collapse;
+    color: white;
+    text-align: center;
+}
+
+th {
+    background-color: var(--table_one_colour);
+    padding: 0 10px;
+}
+
+table tr td {
+    background-color: var(--table_two_colour);
+}
+
+.rowPosition {
+    background-color: var(--table_three_colour);
+}
+
+.team {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table tr td div {
+    display: inline-block;
+    width: 14%;
+    text-align: center;
+    padding: 2px 1px 0 3px;
+}
+
+.formGreen{
+    color: green;
+    font-weight: bolder;
+}
+
+.formRed{
+    color: red;
+    font-weight: bolder;
+}
+/* league table start */
+/* ---------------------------- */
+/* ---------------------------- */
+
