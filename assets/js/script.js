@@ -347,12 +347,8 @@ function scheduleRound() {
               "src",
               item.snippet.thumbnails.medium.url
             );
-            var itemVid = $("<a>").attr(
-              "href",
-              "https://www.youtube.com/watch?v=" + item.id.videoId
-            );
-            itemVid.attr("target", "_blank");
-            itemVid.attr("rel", "noopener noreferrer");
+            var itemVid = $("<a>").attr({href:"https://www.youtube.com/watch?v=" + item.id.videoId, target:"_blank", rel:"noopener noreferrer"});
+            itemVid.attr({href:"https://www.youtube.com/watch?v=" + item.id.videoId, target:"_blank", rel:"noopener noreferrer"});
             itemVid.append(itemURL);
             var YTresponse = $("<div>");
             YTresponse.append(itemTitle, itemVid);
