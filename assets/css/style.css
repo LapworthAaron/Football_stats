@@ -309,7 +309,7 @@ p {
   max-height: 50px;
 }
 
-.fixtureTitle {
+/* .fixtureTitle {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -388,12 +388,11 @@ p {
   background-color: #f0f0f0;
   border-radius: 10px;
   color: #101820;
-}
+} */
 
 /* tempTable */
 
 #fixtureTable {
-  border: 1px solid red;
   width: 100%;
 }
 
@@ -411,7 +410,7 @@ p {
   color: black;
   background-color: white;
   max-width: max-content;
-  margin: 25% auto;
+  margin: 10% auto;
 }
 
 #close-modal {

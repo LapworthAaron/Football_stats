@@ -265,7 +265,11 @@ function arrayPop(num) {
   }
 }
 
-// tempTable
+// ----------------------------------- TOM NEW SCHEDULE JS -----------------------------------------
+// - Populate HTML table with Football API data 
+// - create YouTube icons + onclicks with YoutTube API call based on Football data 
+// - show and populate modal on YT click - modal close onclick for X and modal background as per expected behaviour   
+
 function scheduleRound() {
   // set the api url
   var league = "id=" + leagues[$("#leagues").val()];
@@ -291,10 +295,10 @@ function scheduleRound() {
             <th></th>
           </tr>`);
     for (var i = 0; i < response.events.length; i++) {
-    //   var rawDate = moment(response.events[i].dateEvent, "YYYY-mm-dd").format(
-    //     "Do MMM YYYY"
-    //   );
-    var rawDate = response.events[i].dateEvent;
+      //   var rawDate = moment(response.events[i].dateEvent, "YYYY-mm-dd").format(
+      //     "Do MMM YYYY"
+      //   );
+      var rawDate = response.events[i].dateEvent;
       var rawTime = moment(response.events[i].strTime, "HH:mm:ss").format("ha");
       var venue = response.events[i].strVenue;
       var homeT = response.events[i].strHomeTeam;
@@ -316,7 +320,7 @@ function scheduleRound() {
     ytButtonsArray.forEach((button) => {
       button.addEventListener("click", (e) => {
         $("#modal-background").removeClass("hidden");
-        const {date, homet, scoreh, awayt, scorea} = e.target.dataset
+        const { date, homet, scoreh, awayt, scorea } = e.target.dataset;
         var search = `${date} ${homet} ${scoreh} : ${scorea} ${awayt}`;
         console.log(search);
         const settings = {
@@ -325,7 +329,7 @@ function scheduleRound() {
           url:
             "https://youtube-v31.p.rapidapi.com/search?q=" +
             search +
-            "&regionCode=UK&maxResults=5&part=snippet%2Cid&order=relevance",
+            "&regionCode=UK&maxResults=3&part=snippet%2Cid&order=relevance",
           method: "GET",
           headers: {
             "X-RapidAPI-Key":
@@ -337,10 +341,23 @@ function scheduleRound() {
         $.ajax(settings).done(function (response) {
           console.log(response);
 
-          response.items.forEach(item=>{
-           var itemTitle = $('<p>').text(item.snippet.title)
-            $('#modal-body').append(itemTitle);
-          })
+          response.items.forEach((item) => {
+            var itemTitle = $("<p>").text(item.snippet.title);
+            var itemURL = $("<img>").attr(
+              "src",
+              item.snippet.thumbnails.medium.url
+            );
+            var itemVid = $("<a>").attr(
+              "href",
+              "https://www.youtube.com/watch?v=" + item.id.videoId
+            );
+            itemVid.attr("target", "_blank");
+            itemVid.attr("rel", "noopener noreferrer");
+            itemVid.append(itemURL);
+            var YTresponse = $("<div>");
+            YTresponse.append(itemTitle, itemVid);
+            $("#modal-body").append(YTresponse);
+          });
         });
       });
     });
@@ -348,16 +365,19 @@ function scheduleRound() {
 }
 
 // modal close onclick
-document.addEventListener("click", function(event){
-    if (event.target.id === 'modal-background'){
-        $('#modal-background').addClass("hidden");
-    }
-})
+document.addEventListener("click", function (event) {
+  if (event.target.id === "modal-background") {
+    $("#modal-background").addClass("hidden");
+  }
+});
 
-$("#modalX").on("click", function(event){
-    $('#modal-background').addClass("hidden");
-})
+$("#modalX").on("click", function (event) {
+  $("#modal-background").addClass("hidden");
+});
 
+
+
+// ---------------------------------------AARON OLD SCHEDULE SECTION JAVASCRIPT--------------------
 // empty schedule section, construct url and call ajax
 // function scheduleRound() {
 //     $('#schedule').empty();
@@ -432,6 +452,7 @@ $("#modalX").on("click", function(event){
 //         //TODO: add youtube button here with link to modal
 //     }
 // }
+// --------------------------------------- END OF AARON OLD SCHEDULE SECTION JAVASCRIPT--------------------
 
 ///////////////////////////
 // Player Search section
