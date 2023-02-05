@@ -83,6 +83,11 @@ p {
   color: var(--brandcolor);
 }
 
+.searchLabel
+{
+  margin-left: 12%;
+}
+
 .playerGrid
 {
   margin-top: 5%;
@@ -101,7 +106,7 @@ p {
   border: var(--secondarycolor);
   border-radius: 10%;
   height: 22vh;
-  width: 15em;
+  width: 12em;
   text-align: center;
 
 }
@@ -134,6 +139,10 @@ p {
   grid-area: socialMediaContainer;
 }
 
+.socialMediaContainer a
+{
+  text-decoration: none;
+}
 #playerSearch 
 {
   margin-left: 5%;
@@ -147,7 +156,7 @@ p {
 {
   border-right: 2px solid var(--secondaryTextColor);
   margin-right: 5%;
-  margin-top: 2%;
+  margin-top: 4%;
   margin-bottom: 5%;
 
 }

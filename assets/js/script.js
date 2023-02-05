@@ -96,7 +96,7 @@ function hideShow(fb, ld, sd, gd, psd, ubl, ubs, sbp, lp, lt, s, ps) {
   $("#landingPage").removeClass("show hidden").addClass(lp);
   $("#leagueTable").removeClass("show hidden").addClass(lt).empty();
   $("#schedule").removeClass("show hidden").addClass(s);
-  $("#playerSearch").removeClass("show hidden").addClass(ps) //.empty();
+  $("#playerSearch").removeClass("show hidden").addClass(ps).empty();
 }
 
 ///////////////////////////
