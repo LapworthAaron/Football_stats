@@ -91,31 +91,47 @@ p {
   grid-template-rows: auto;
   grid-template-areas: 
   'playerImg playerBio'       /* 1st row */
-  'playerImg playerBio'
-  'playerInfo playerInfo';              /* 2nd row */
+  'playerInfo playerInfo';    /* 2nd row */
 }
 
 .imgPlaceHolder
 {
-  background-image: url('/assets/images/cr7.jpg');
-  border-radius: 20%;
+  
+  overflow: hidden;
+  border: var(--secondarycolor);
+  border-radius: 10%;
+  height: 22vh;
+  width: 15em;
+  text-align: center;
+
 }
 
 #playerImg
 {
   grid-area: playerImg;
-  margin-left: 5%;
+  margin-left: 25%;
+  
 }
 
 #playerBio
 {
   grid-area: playerBio;
+  margin-left: -15%;
 }
 
 #playerInfo
 {
   grid-area: playerInfo;
-  margin-top: 5%;
+  margin-top: 2%;
+  margin-left: 12%;
+  margin-bottom: 10%;
+  margin-right: 11%;
+
+}
+
+.socialMediaContainer
+{
+  grid-area: socialMediaContainer;
 }
 
 #playerSearch 
@@ -127,7 +143,22 @@ p {
   grid-template-areas: "playerResultsItem recentSearch";
 }
 
+.borderToSeparate
+{
+  border-right: 2px solid var(--secondaryTextColor);
+  margin-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 5%;
 
+}
+
+.instagramPlayer
+{
+  margin-bottom: 10%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
 
 /* #recentSearch {
   grid-area: recentSearch;
@@ -145,30 +176,62 @@ p {
     grid-gap: 2em;
 } */
 
+/* 2nd grid of the section which takes 25% for recent search*/
+.recentSearch
+{
+  margin-top:10%;
+}
+
+.border-left
+{
+  border-left: ;
+}
+/* container for the recently searched players */
+.recentSearchItems 
+{
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+/* buttons for recently searched players */
 .recentSearchPlayers
 {
   width: 30%;
   margin-bottom: 5%;
   text-align: center;
-}
-
-#recentSearch
-{
-  display: flex;
-  flex-direction: column;
-}
-
-.recentSearchItems 
-{
-  display: flex;
-  flex-direction: column;
+  border-radius: 8%;
+  background-color: var(--searchColor);
+  color: var(--secondaryBrandColor) ;
   margin-left: 15%;
-  /* width: fit-content;
-  margin-left: 10%;
-  margin-top: 10%; */
+} 
+
+/* hover for buttons for recently searched players */
+.recentSearchPlayers:hover
+{
+  background-color: var(--secondaryBrandColor);
+  color: var(--secondaryTextColor);
+  transition-delay: 0.3s;
 }
 
-clearSearchHistory
+/* clear button styling */
+.clearSearchHistory
+{
+  background-color: var(--searchColor);
+  color: var(--secondaryBrandColor);
+  margin-right: 5%;
+}
+ 
+/* clear button no hover  */
+.clearSearchHistory:hover
+{
+  background-color: var(--searchColor);
+  color: var(--secondaryBrandColor);
+  
+}
+
+
+
 /* #recentSearchItem1 {
   grid-area: recentSearchItem1;
 }
@@ -186,24 +249,6 @@ clearSearchHistory
 {
   grid-area: recentSearchItem5;
 } */
-
-#clearSearchHistory
-{
-  background-color: var(--searchColor);
-  color: var(--secondaryBrandColor);
-}
-
-#clearSearchHistory:hover
-{
-  background-color: var(--secondaryBrandColor);
-  color: #9CCC65;
-}
-
-
-/* Player Text Info */
-#playerInfo {
-  margin-left: 5%;
-}
 
 /* footer
 {
