@@ -292,7 +292,7 @@ function scheduleRound() {
             <th>Home Team</th>
             <th>Score</th>
             <th>Away Team</th>
-            <th></th>
+            <th>Highlights</th>
           </tr>`);
     for (var i = 0; i < response.events.length; i++) {
       //   var rawDate = moment(response.events[i].dateEvent, "YYYY-mm-dd").format(
