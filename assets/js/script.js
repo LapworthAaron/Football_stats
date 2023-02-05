@@ -277,6 +277,7 @@ function scheduleRound() {
     url: queryUrl,
     method: "GET",
   }).then(function (response) {
+    console.log(response);
     $("#fixtureTableBody").empty();
     var fixtureTitle = $("#fixtureTitle");
     fixtureTitle.html(
@@ -290,22 +291,53 @@ function scheduleRound() {
             <th></th>
           </tr>`);
     for (var i = 0; i < response.events.length; i++) {
-      var rawDate = moment(response.events[i].dateEvent, "YYYY-mm-dd").format(
-        "Do MMM YYYY"
-      );
+    //   var rawDate = moment(response.events[i].dateEvent, "YYYY-mm-dd").format(
+    //     "Do MMM YYYY"
+    //   );
+    var rawDate = response.events[i].dateEvent;
       var rawTime = moment(response.events[i].strTime, "HH:mm:ss").format("ha");
       var venue = response.events[i].strVenue;
+      var homeT = response.events[i].strHomeTeam;
+      var scoreH = response.events[i].intHomeScore;
+      var scoreA = response.events[i].intAwayScore;
+      var awayT = response.events[i].strAwayTeam;
       var fixtureRow = $("<tr>");
       fixtureRow.html(` <td>${venue}<br/>${rawDate} @ ${rawTime} </td>
-            <td>${response.events[i].strHomeTeam}</td>
-            <td>${response.events[i].intHomeScore} : ${response.events[i].intAwayScore}</td>
-            <td>${response.events[i].strAwayTeam}</td>
-            <td><a><img class="yticon" src="./assets/images/YT.PNG"/></a></td>`);
+            <td>${homeT}</td>
+            <td>${scoreH} : ${scoreA}</td>
+            <td>${awayT}</td>
+            <td><img class="yticon" src="./assets/images/YT.PNG"/ data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
       $("#fixtureTableBody").append(fixtureRow);
     }
 
-    const ytButtonsCollection = document.querySelectorAll('.yticon')
-    const ytButtonsArray = Array.from(ytButtonsCollection)
+    const ytButtonsCollection = document.querySelectorAll(".yticon");
+    const ytButtonsArray = Array.from(ytButtonsCollection);
+
+    ytButtonsArray.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const {date, homet, scoreh, awayt, scorea} = e.target.dataset
+        var search = `${date} ${homet} ${scoreh} : ${scorea} ${awayt}`;
+        console.log(search);
+        const settings = {
+          async: true,
+          crossDomain: true,
+          url:
+            "https://youtube-v31.p.rapidapi.com/search?q=" +
+            search +
+            "&regionCode=UK&maxResults=5&part=snippet%2Cid&order=relevance",
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key":
+              "3c5d877b0bmshe9e8bab975e2cc3p1fb9a3jsnc36d958bc444",
+            "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
+          },
+        };
+
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+      });
+    });
   });
 }
 
