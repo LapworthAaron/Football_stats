@@ -247,6 +247,10 @@ function arrayPop(num) {
   }
 }
 
+// Function to call API for Schedule Section 
+// Populate HTML as a table 
+// Add YouTube icon with data attr for YouTube API call
+
 function scheduleRound() {
   // set the api url
   var league = "id=" + leagues[$("#leagues").val()];
@@ -287,16 +291,24 @@ function scheduleRound() {
             <td><img class="yticon" src="./assets/images/YT.PNG"/ data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
       $("#fixtureTableBody").append(fixtureRow);
     }
+    ytButtons();
+  });
+}
 
-    const ytButtonsCollection = $(".yticon");
+// function to create on click for each YouTube button
+// Call YouTube API using data attributes set in Fixture table generation above
+
+function ytButtons () {
+  const ytButtonsCollection = $(".yticon");
     const ytButtonsArray = Array.from(ytButtonsCollection);
 
     ytButtonsArray.forEach((button) => {
       button.addEventListener("click", (e) => {
+
+        $("#modal-body").html(`<h1> Finding Highlights... </h1>`)
         $("#modal-background").removeClass("hidden");
         const { date, homet, scoreh, awayt, scorea } = e.target.dataset;
         var search = `${date} ${homet} ${scoreh} : ${scorea} ${awayt}`;
-        // console.log(search);
         const settings = {
           async: true,
           crossDomain: true,
@@ -311,10 +323,10 @@ function scheduleRound() {
             "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
           },
         };
-
+        // Populate Modal with 3 search results from API
         $.ajax(settings).done(function (response) {
           console.log(response);
-
+          $("#modal-body").empty();
           response.items.forEach((item) => {
             var itemTitle = $("<p>").text(item.snippet.title);
             var itemURL = $("<img>").attr(
@@ -324,17 +336,16 @@ function scheduleRound() {
             var itemVid = $("<a>").attr({href:"https://www.youtube.com/watch?v=" + item.id.videoId, target:"_blank", rel:"noopener noreferrer"});
             itemVid.attr({href:"https://www.youtube.com/watch?v=" + item.id.videoId, target:"_blank", rel:"noopener noreferrer"});
             itemVid.append(itemURL);
-            var YTresponse = $("<div>");
+            var YTresponse = $("<div>").addClass("responseDiv");
             YTresponse.append(itemTitle, itemVid);
             $("#modal-body").append(YTresponse);
           });
         });
       });
     });
-  });
 }
 
-// modal close onclick
+// Modal close onclicks
 document.addEventListener("click", function (event) {
   if (event.target.id === "modal-background") {
     $("#modal-background").addClass("hidden");
