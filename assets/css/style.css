@@ -398,9 +398,9 @@ border-collapse: collapse;
 
 th,
 table tr td {
-border-left: 1px solid dimgrey;
-border-right: 1px solid dimgrey;
-border-collapse: collapse;
+/* border-left: 1px solid dimgrey;
+border-right: 1px solid dimgrey; */
+/* border-collapse: collapse; */
 color: white;
 text-align: center;
 }
