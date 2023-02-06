@@ -70,12 +70,18 @@ p {
   width: 20%;
   padding: 10px;
   background: var(--searchColor);
+  color: var(--secondaryBrandColor);
   font-size: 1.1em;
   border: 1px solid grey;
   border-left: none;
   cursor: pointer;
 }
 
+
+#searchBtn:hover {
+  background-color: var(--secondaryBrandColor);
+  color: var(--brandcolor);
+}
 
 .searchLabel
 {
@@ -187,7 +193,7 @@ p {
 
 .border-left
 {
-  border-left: 0;
+  border-left: ;
 }
 /* container for the recently searched players */
 .recentSearchItems 
@@ -247,7 +253,6 @@ p {
 #recentSearchItem4 {
   grid-area: recentSearchItem4;
 }
-
 #recentSearchItem5
 {
   grid-area: recentSearchItem5;
@@ -446,13 +451,9 @@ p {
   font-weight: 600;
 }
 
-#fixtureTable {
-  /* width: 60%; */
+#fixtureTable{
+  width: 100%;
   font-weight: 600;
-}
-
-#fixtureTable td {
-  padding: 0 10px;
 }
 
 #fixtureTableBody {
@@ -461,7 +462,7 @@ p {
 
 /* Modal Styling */
 
-.modal-background {
+#modal-background {
   position: fixed;
   z-index: 1;
   left: 0;
