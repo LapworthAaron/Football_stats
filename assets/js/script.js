@@ -421,43 +421,30 @@ function makeModal(msg) {
 
 // function to populate api data to HTML elements
 function playerHtml(response) {
-  var divImg = $("<div>")
-    .attr({ id: "playerImg", class: "playerImg" })
-    .appendTo($("#playerResultsItem"));
-  var img = $("<img>");
-  img
-    .attr({ src: response.player[0].strThumb, width: "250px" })
-    .appendTo(divImg);
-
-  var divBio = $("<div>")
-    .attr({ id: "playerBio", class: "playerBio" })
-    .appendTo($("#playerResultsItem"));
-
-  var name = $("<h3>").text("Name: " + response.player[0].strPlayer);
-  var bornDate = $("<h3>").text("DOB: " + response.player[0].dateBorn);
-  var bornLocation = $("<h3>").text(
-    "Born: " + response.player[0].strBirthLocation
-  );
-  var nationality = $("<h3>").text(
-    "Nationality: " + response.player[0].strNationality
-  );
-  var position = $("<h3>").text("Position: " + response.player[0].strPosition);
-  var team = $("<h3>").text("Team: " + response.player[0].strTeam);
-  divBio.append(name, bornDate, bornLocation, nationality, position, team);
-
-  var divInfo = $("<div>")
-    .attr({ id: "playerInfo", class: "playerInfo" })
-    .appendTo($("#playerResultsItem"));
-
+  console.log(response);
   storePlayers(response.player[0].strPlayer);
-
-  var title = $("<h3>").text("Profile:");
-  var desc = $("<h3>").text(response.player[0].strDescriptionEN);
-  divInfo.append(title, desc);
+    $("#playerResultsItem").html(`<div class="playerGrid">
+    <div id="playerImg">
+      <img class ="imgPlaceHolder" src="${response.player[0].strThumb}"/>
+      <h3>
+        ${response.player[0].strPlayer}
+      </h3>
+    </div>
+    <div id="playerBio" >
+      <h3> Born: ${response.player[0].strBirthLocation}</h3>
+      <h3> Nationality: ${response.player[0].strNationality}</h3>
+      <h3> DOB: ${response.player[0].dateBorn}</h3>
+      <h3> Team : ${response.player[0].strTeam}</h3>
+      <h3> Position: ${response.player[0].strPosition}</h3>
+    </div>
+    <div id="playerInfo"> 
+      <h4>${response.player[0].strDescriptionEN}</h4>
+    </div>
+  </div>`)
 }
 
 // Player Search History
-//function to store city searched into localStorage
+//function to store player searched into localStorage
 function storePlayers(player) {
   var playerList = { list: [] };
   if (localStorage.getItem("playerList") == undefined) {
@@ -478,7 +465,7 @@ function storePlayers(player) {
   return;
 }
 
-//function to read city from localStorage
+//function to read player from localStorage
 function getPlayerList() {
   var playerList;
   if (localStorage.getItem("playerList") != undefined) {
@@ -490,7 +477,7 @@ function getPlayerList() {
   return;
 }
 
-//function to create city buttons
+//function to create player searched buttons
 function playerBtns(playerList) {
   $("#borderPlayerSearch").empty();
   // aside for the recent search area
