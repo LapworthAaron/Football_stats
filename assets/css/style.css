@@ -462,7 +462,7 @@ p {
 
 /* Modal Styling */
 
-#modal-background {
+.modal-background {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -529,7 +529,6 @@ table {
   
   table tr td {
   background-color: #363636;
-  
   }
   
   .position,
