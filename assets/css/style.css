@@ -20,13 +20,13 @@
 
 :root
 {
-    --brandcolor: #9CCC65;
-    --secondaryBrandColor: #311B92;
-    --textColor: #101820;
+    --brandcolor: #0f0f0f;
+    --secondaryBrandColor: #f3f3f4;
+    --textColor: #fafafa;
     --secondaryTextColor: #f0f0f0;
     --searchColor: #f0f0f0;
     --searchSecondaryColor: rgba(255,255,255, 0.3);
-    --table_one_colour: rgba(36, 36, 36, 0.755);
+    --table_one_colour: rgba(36, 36, 36, 0.755);  
     --table_two_colour: rgba(33, 37, 41, 1);
     --table_three_colour: rgba(36, 36, 36, 0.755);
 }
