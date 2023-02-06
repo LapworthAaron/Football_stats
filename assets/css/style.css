@@ -461,7 +461,7 @@ p {
 
 /* Modal Styling */
 
-#modal-background {
+.modal-background {
   position: fixed;
   z-index: 1;
   left: 0;

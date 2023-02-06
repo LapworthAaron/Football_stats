@@ -351,33 +351,39 @@ $("#modalX").on("click", function (event) {
 // function to get player details and populate to screen
 function playerSearch(event) {
   var queryUrl;
+  var player;
   if ($("#playerSearchInput").val() == "" && event.target.id.includes("recentSearchPlayers_")) {
-      var playerInput = "p=" + encodeURIComponent(event.target.innerText);
+      player = event.target.innerText;
+      var playerInput = "p=" + encodeURIComponent(player);
       // console.log(playerInput);
       queryUrl = playerUrl + playerInput;
   } else if ($("#playerSearchInput").val() == "" && event.target.id == "searchBtnPlayer") {
-    $("#playerResultsItem").empty();
-      var heading = $("<h3>")
-        .text(" Search Results ")
-        .appendTo($("#playerResultsItem"));
-      $("<h4>")
-        .text("The search Input was empty, please try again")
-        .appendTo(heading);
+      makeModal("The search Input was empty, please try again");
+      $("#closeModal").unbind('click').on("click", function (event) {
+        $("#myModal").remove();
+      });
       return;
   } else {
-    var playerInput = "p=" + encodeURIComponent($("#playerSearchInput").val());
+    player = $("#playerSearchInput").val();
+    var playerInput = "p=" + encodeURIComponent(player);
     queryUrl = playerUrl + playerInput;
     // console.log(playerInput);
   }
-
-  $("#playerSearch").empty();
 
   $.ajax({
     url: queryUrl,
     method: "GET",
   }).then(function (response) {
-    if (response.player[0].strSport == "Soccer") {
+    console.log(response.player == null);
+    if (response.player == null) {
+      makeModal('"' + player + '" does not exist ');
+      $("#closeModal").unbind('click').on("click", function (event) {
+        $("#myModal").remove();
+      });
+      return;
+    } else if (response.player[0].strSport == "Soccer") {
       // console.log(response);
+      $("#playerSearch").empty();
       var article = $("<article>").attr("id", "playerResultsItem");
       $("#playerSearch").append(article);
       $("<h3>").text(" Search Results ").appendTo(article);
@@ -385,16 +391,31 @@ function playerSearch(event) {
       //populate api data to HTML elements
       playerHtml(response);
     } else {
-      var article = $("<article>").attr("id", "playerResultsItem");
-      $("#playerSearch").append(article);
-      $("<h3>").text(" Search Results ").appendTo(article);
-      $("<h4>")
-        .text('"' + $("#playerSearchInput").val() + '" does not exist ')
-        .appendTo(article);
+      makeModal('"' + $("#playerSearchInput").val() + '" does not exist ');
+      $("#closeModal").unbind('click').on("click", function (event) {
+        $("#myModal").remove();
+      });
+      return;
     }
   });
   $("#playerSearchInput").val("");
   return;
+}
+
+// make a modal with customer text to call out errors
+function makeModal(msg) {
+  var modalDiv = $("<div>").attr({"id":"myModal","class":"modal-background"});
+  $("#playerSearch").append(modalDiv);
+  var modalContent = $("<div>").attr("class","modal-window");
+  modalDiv.append(modalContent);
+  var close = $("<div>").attr({"id":"closeModal","class":"close"});
+  var closeBtn = $("<span>").text("X");
+  close.append(closeBtn);
+  var p = $("<p>").text(msg);
+  modalContent.append(close, p);
+  $("#closeModal").unbind('click').on("click", function (event) {
+    $("#myModal").remove();
+  });
 }
 
 
