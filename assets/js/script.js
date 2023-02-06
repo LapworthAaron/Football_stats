@@ -449,7 +449,7 @@ function playerHtml(response) {
       <h3> Position: ${response.player[0].strPosition}</h3>
     </div>
     <div id="playerInfo"> 
-      <h4>${response.player[0].strDescriptionEN}</h4>
+      <p>${response.player[0].strDescriptionEN}</p>
     </div>
   </div>`)
 }
