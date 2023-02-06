@@ -193,7 +193,7 @@ p {
 
 .border-left
 {
-  border-left: ;
+  border-left: 1px;
 }
 /* container for the recently searched players */
 .recentSearchItems 
