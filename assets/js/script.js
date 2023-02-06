@@ -24,17 +24,9 @@ $("#landingBtn").on("click", function () {
 function showLeaguePage() {
   hideShow(
     "show",
-    "show",
-    "show",
-    "hidden",
-    "hidden",
-    "show",
-    "hidden",
-    "hidden",
-    "hidden",
-    "show",
-    "hidden",
-    "hidden"
+    "show", "show", "hidden", "hidden",
+    "show", "hidden", "hidden",
+    "hidden", "show", "hidden", "hidden"
   );
 
   $("#updateBtnLeague").unbind("click").on("click", leagueTable);
@@ -43,17 +35,9 @@ function showLeaguePage() {
 function showSchedulePage() {
   hideShow(
     "show",
-    "show",
-    "show",
-    "show",
-    "hidden",
-    "hidden",
-    "show",
-    "hidden",
-    "hidden",
-    "hidden",
-    "show",
-    "hidden"
+    "show", "show", "show", "hidden",
+    "hidden", "show", "hidden",
+    "hidden", "hidden", "show", "hidden"
   );
 
   gameweekGenerate();
@@ -64,17 +48,9 @@ function showSchedulePage() {
 function showPlayerPage() {
   hideShow(
     "show",
-    "hidden",
-    "hidden",
-    "hidden",
-    "show",
-    "hidden",
-    "hidden",
-    "show",
-    "hidden",
-    "hidden",
-    "hidden",
-    "show"
+    "hidden", "hidden", "hidden", "show",
+    "hidden", "hidden", "show",
+    "hidden", "hidden", "hidden", "show"
   );
   getPlayerList();
   $("#searchBtnPlayer").unbind("click").on("click", playerSearch);
@@ -132,17 +108,17 @@ function leagueTableTemplate() {
   // create all the headers for the table and append to the table
   var header = $("<tr>");
   table.append(header);
-  var pos = $("<th>").text("Position").attr("class", "position");
-  var logo = $("<th>").text("Logo").attr("class", "logo");
+  var pos = $("<th>").text("").attr("class", "position");
+  var logo = $("<th>").text("").attr("class", "logo");
   var team = $("<th>").text("Team").attr("class", "team");
-  var played = $("<th>").text("Played").attr("class", "played");
-  var wins = $("<th>").text("Wins").attr("class", "wins");
-  var draws = $("<th>").text("Draws").attr("class", "draws");
-  var loses = $("<th>").text("Loses").attr("class", "loses");
-  var gd = $("<th>").text("Goal Diff").attr("class", "goalDiff");
+  var played = $("<th>").text("Pld").attr("class", "played");
+  var wins = $("<th>").text("W").attr("class", "wins");
+  var draws = $("<th>").text("D").attr("class", "draws");
+  var loses = $("<th>").text("L").attr("class", "loses");
+  var gd = $("<th>").text("GD").attr("class", "goalDiff");
   var gf = $("<th>").text("GF").attr("class", "gf");
   var ga = $("<th>").text("GA").attr("class", "ga");
-  var points = $("<th>").text("Points").attr("class", "points");
+  var points = $("<th>").text("Pts").attr("class", "points");
   var form = $("<th>").text("Form").attr("class", "form");
   var desc = $("<th>").text("Info").attr("class", "info");
 
@@ -177,7 +153,9 @@ function leagueTableContents(response) {
       width: "25px",
     });
     logo.append(logoH);
-    var team = $("<td>").text(response.table[i].strTeam).attr("class", "team");
+    var team = $("<td>")
+      .text(response.table[i].strTeam)
+      .attr("class", "team");
     var played = $("<td>")
       .text(response.table[i].intPlayed)
       .attr("class", "played");
@@ -237,6 +215,10 @@ function leagueTableContents(response) {
 ///////////////////////////
 // Schedule section
 ///////////////////////////
+// - Populate HTML table with Football API data 
+// - create YouTube icons + onclicks with YoutTube API call based on Football data 
+// - show and populate modal on YT click - modal close onclick for X and modal background as per expected behaviour   
+
 var gameweekArray = [];
 
 //get the number of games in a season, epl is the only one with 38 games
@@ -265,11 +247,6 @@ function arrayPop(num) {
   }
 }
 
-// ----------------------------------- TOM NEW SCHEDULE JS -----------------------------------------
-// - Populate HTML table with Football API data 
-// - create YouTube icons + onclicks with YoutTube API call based on Football data 
-// - show and populate modal on YT click - modal close onclick for X and modal background as per expected behaviour   
-
 function scheduleRound() {
   // set the api url
   var league = "id=" + leagues[$("#leagues").val()];
@@ -295,10 +272,7 @@ function scheduleRound() {
             <th>Highlights</th>
           </tr>`);
     for (var i = 0; i < response.events.length; i++) {
-      //   var rawDate = moment(response.events[i].dateEvent, "YYYY-mm-dd").format(
-      //     "Do MMM YYYY"
-      //   );
-      var rawDate = response.events[i].dateEvent;
+      var rawDate = moment(response.events[i].dateEvent, "YYYY-mm-dd").format("Do MMM YYYY");
       var rawTime = moment(response.events[i].strTime, "HH:mm:ss").format("ha");
       var venue = response.events[i].strVenue;
       var homeT = response.events[i].strHomeTeam;
@@ -314,7 +288,7 @@ function scheduleRound() {
       $("#fixtureTableBody").append(fixtureRow);
     }
 
-    const ytButtonsCollection = document.querySelectorAll(".yticon");
+    const ytButtonsCollection = $(".yticon");
     const ytButtonsArray = Array.from(ytButtonsCollection);
 
     ytButtonsArray.forEach((button) => {
@@ -322,7 +296,7 @@ function scheduleRound() {
         $("#modal-background").removeClass("hidden");
         const { date, homet, scoreh, awayt, scorea } = e.target.dataset;
         var search = `${date} ${homet} ${scoreh} : ${scorea} ${awayt}`;
-        console.log(search);
+        // console.log(search);
         const settings = {
           async: true,
           crossDomain: true,
@@ -371,95 +345,25 @@ $("#modalX").on("click", function (event) {
   $("#modal-background").addClass("hidden");
 });
 
-
-
-// ---------------------------------------AARON OLD SCHEDULE SECTION JAVASCRIPT--------------------
-// empty schedule section, construct url and call ajax
-// function scheduleRound() {
-//     $('#schedule').empty();
-//     $('#schedule').attr('class','show');
-//     // set the api url
-//     var league = 'id=' + leagues[$('#leagues').val()];
-//     var year = '&s=' + $('#season').val();
-//     var week = '&r=' + $('#gameweek').val();
-//     var queryUrl = scheduleUrl + league + week + year;
-
-//     $.ajax({"url": queryUrl,
-// 		"method": "GET"
-// 	})
-// 	.then(function (response) {
-//         // console.log(response);
-// 		var fixtureTitle = $('<div>').attr('class','fixtureTitle');
-//         var yearH = $('<h1>').text('Season: ' + $('#season').val() );
-// 		var roundH = $('<h2>').text('Gameweek: ' + $('#gameweek').val());
-//         fixtureTitle.append(yearH, roundH);
-// 		$('#schedule').append(fixtureTitle);
-
-//         // dynamic update of the fixtures
-// 		scheduleDynamic(response);
-//     });
-//     return;
-// }
-
-// dynamically populate the html in the schedule section and add api data
-// function scheduleDynamic(response) {
-//     //loop through each fixture
-//     for (var i = 0; i < response.events.length; i++) {
-//         // create one heading for the details or date, time and venue for the match
-//         var scheduleDiv = $('<div>').attr('class','scheduleDiv');
-//         var buttonA = $('<a>').attr('class', 'youTubeBtn');
-//         var YTlogo = $('<img>').attr('src', "./assets/images/YT.PNG");
-//         buttonA.append(YTlogo);
-//         var rawDate = moment(response.events[i].dateEvent,"YYYY-mm-dd").format('Do MMM YYYY');
-//         var rawTime = moment(response.events[i].strTime,"HH:mm:ss").format('ha');
-//         var venue = response.events[i].strVenue;
-//         var logDiv = $('<div>').attr('class','fixtureLogistics');
-//         var logHeading = $('<h6>').text(rawDate + ' - ' + rawTime)
-//         var logVenue = $('<h5>').text(venue)
-//         logDiv.append(logHeading, logVenue)
-//             scheduleDiv.append(buttonA);
-//             $('#schedule').append(scheduleDiv);
-
-//         //get the fixtures and game detail
-//         if (response.events[i].intHomeScore != null) {
-//             var tableRow = $('<tr>').attr('class','fixtureTeam');
-//             scheduleDiv.append(logDiv, tableRow);
-//             var teamH = $('<td>').text(response.events[i].strHomeTeam);
-//             // middle section of scores and colon
-//             var scoreMiddle = $('<td>').attr('class','scoreMiddle');
-//             var scoreH = $('<h3>').text(response.events[i].intHomeScore);
-//             var colon = $('<h2>').text(" : ");
-//             var scoreA = $('<h3>').text(response.events[i].intAwayScore);
-//             scoreMiddle.append(scoreH, colon, scoreA);
-//             var teamA = $('<td>').text(response.events[i].strAwayTeam);
-//             tableRow.append(teamH, scoreMiddle, teamA);
-//         } else {
-//             var tableRow = $('<tr>').attr('class','fixtureTeam')
-//             scheduleDiv.append(logDiv, tableRow);
-//             var teamH = $('<td>').text(response.events[i].strHomeTeam);
-//             // middle section of just v
-//             var scoreMiddle = $('<td>').attr('class','scoreMiddle');
-//             var vs = $('<h3>').text(" v ");
-//             scoreMiddle.append(scoreH, vs, scoreA);
-//             var teamA = $('<td>').text(response.events[i].strAwayTeam);
-//             tableRow.append(teamH, scoreMiddle, teamA);
-
-//         }
-//         //TODO: add youtube button here with link to modal
-//     }
-// }
-// --------------------------------------- END OF AARON OLD SCHEDULE SECTION JAVASCRIPT--------------------
-
 ///////////////////////////
 // Player Search section
 ///////////////////////////
 // function to get player details and populate to screen
 function playerSearch(event) {
   var queryUrl;
-  if ($("#playerSearchInput").val() == "") {
-    var playerInput = "p=" + encodeURIComponent(event.target.innerText);
-    // console.log(playerInput);
-    queryUrl = playerUrl + playerInput;
+  if ($("#playerSearchInput").val() == "" && event.target.id.includes("recentSearchPlayers_")) {
+      var playerInput = "p=" + encodeURIComponent(event.target.innerText);
+      // console.log(playerInput);
+      queryUrl = playerUrl + playerInput;
+  } else if ($("#playerSearchInput").val() == "" && event.target.id == "searchBtnPlayer") {
+    $("#playerResultsItem").empty();
+      var heading = $("<h3>")
+        .text(" Search Results ")
+        .appendTo($("#playerResultsItem"));
+      $("<h4>")
+        .text("The search Input was empty, please try again")
+        .appendTo(heading);
+      return;
   } else {
     var playerInput = "p=" + encodeURIComponent($("#playerSearchInput").val());
     queryUrl = playerUrl + playerInput;
@@ -468,7 +372,6 @@ function playerSearch(event) {
 
   $("#playerSearch").empty();
 
-  // TODO: validate empty inputs
   $.ajax({
     url: queryUrl,
     method: "GET",
@@ -491,7 +394,9 @@ function playerSearch(event) {
     }
   });
   $("#playerSearchInput").val("");
+  return;
 }
+
 
 // function to populate api data to HTML elements
 function playerHtml(response) {
@@ -596,9 +501,8 @@ function playerBtns(playerList) {
       "aria-label": playerList.list[i],
       class: "btn btn-light recentSearchPlayers",
       id: "recentSearchPlayers_" + i,
-    });
-    var playerBtnH4 = $("<h4>").text(playerList.list[i]);
-    playerBtn.append(playerBtnH4);
+    })
+      .text(playerList.list[i]);
     playerDiv.append(playerBtn);
   }
   // clear history button
@@ -613,9 +517,8 @@ function playerBtns(playerList) {
     "aria-label": "clear history button",
     class: "btn btn-alert",
     id: "clearSearchHistory",
-  });
-  var clearBtnH4 = $("<h4>").text("Clear Recent Searches");
-  remove.append(clearBtnH4);
+  })
+  .text("Clear Recent Searches");
   removeListDiv.append(remove);
 
   // on button clicks
