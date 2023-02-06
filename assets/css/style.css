@@ -463,6 +463,14 @@ p {
 
 /* Modal Styling */
 
+#modal-body {
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  font-weight: 900;
+  color: #f0f0f0;
+}
+
 .modal-background {
   position: fixed;
   z-index: 1;
@@ -475,9 +483,9 @@ p {
 
 .modal-window {
   color: black;
-  background-color: white;
+  background-color: rgb(124, 116, 116);
   max-width: max-content;
-  margin: 10% auto;
+  margin: 5% auto;
 }
 
 #close-modal {
@@ -488,6 +496,20 @@ p {
 
 #close-modal span {
   cursor: pointer;
+}
+
+.responseDiv {
+  padding: 2%;
+  width: 100%;
+ align-self: center;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+
+.responseDiv a, .responseDiv p {
+  align-self: center;
+  text-align: center;
 }
 
 #close-modal span:hover{
