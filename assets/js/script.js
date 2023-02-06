@@ -336,7 +336,7 @@ function ytButtons () {
             var itemVid = $("<a>").attr({href:"https://www.youtube.com/watch?v=" + item.id.videoId, target:"_blank", rel:"noopener noreferrer"});
             itemVid.attr({href:"https://www.youtube.com/watch?v=" + item.id.videoId, target:"_blank", rel:"noopener noreferrer"});
             itemVid.append(itemURL);
-            var YTresponse = $("<div>");
+            var YTresponse = $("<div>").addClass("responseDiv");
             YTresponse.append(itemTitle, itemVid);
             $("#modal-body").append(YTresponse);
           });
