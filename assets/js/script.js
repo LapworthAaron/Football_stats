@@ -500,7 +500,9 @@ function playerBtns(playerList) {
     class: "recentSearchItems",
   });
   asideHistory.append(playerListDiv);
-  for (var i = 0; i < playerList.list.length; i++) {
+
+  for (var i = 0; i < playerList.list.length; i++) 
+  {
     var playerDiv = $("<div>").attr({ id: "recentSearchItem" + i });
     playerListDiv.append(playerDiv);
     var playerBtn = $("<button>");
