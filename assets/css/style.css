@@ -502,61 +502,66 @@ main{
 /* ---------------------------- */
 /* ---------------------------- */
 /* league table start */
-
-#dynamicTable {
-  width: 100%;
-}
 table {
-    font-family: Arial, Helvetica, sans-serif;
-    border: 2px solid var(--searchSecondaryColor);
-    border-collapse: collapse;
-}
-
-table tr {
-    border-bottom: 2px solid var(--searchSecondaryColor);
-    border-collapse: collapse;
-}
-
-th,
-table tr td {
-    border-left: 1px solid var(--searchSecondaryColor);
-    border-right: 1px solid var(--searchSecondaryColor);
-    border-collapse: collapse;
-    color: white;
-    text-align: center;
-}
-
-th {
-    background-color: var(--table_one_colour);
-    padding: 0 10px;
-}
-
-table tr td {
-    background-color: var(--table_two_colour);
-}
-
-.rowPosition {
-    background-color: var(--table_three_colour);
-}
-
-.team {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-table tr td div {
-    display: inline-block;
-    width: 14%;
-    text-align: center;
-    padding: 2px 1px 0 3px;
-}
-
-.formGreen{
-    color: green;
-    font-weight: bolder;
-}
-
-.formRed{
-    color: red;
-    font-weight: bolder;
-}
+  border: 10px solid dimgrey;
+  border-collapse: collapse;
+  margin: 2rem auto;
+  }
+  
+  table tr {
+  border: 5px solid dimgrey;
+  border-collapse: collapse;
+  }
+  
+  th,
+  table tr td {
+  /* border-left: 1px solid dimgrey;
+  border-right: 1px solid dimgrey;
+  border-collapse: collapse; */
+  color: white;
+  text-align: center;
+  }
+  
+  th {
+  background-color: black;
+  padding: 0 10px;
+  }
+  
+  table tr td {
+  background-color: #363636;
+  
+  }
+  
+  .position,
+  .info,
+  .logo,
+  .team {
+  padding: 0 10px;
+  }
+  
+  .rowPosition {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-weight: 900;
+  }
+  
+  table tr td div {
+  display: inline-block;
+  width: 14%;
+  text-align: center;
+  margin: 0 2px;
+  }
+  
+  .formGreen{
+  color: green;
+  font-weight: bolder;
+  /* padding: 0 2px; */
+  }
+  
+  .formRed{
+  color: red;
+  font-weight: bolder;
+  }
+  /* league table end */
+  /* ---------------------------- */
+  /* ---------------------------- */
