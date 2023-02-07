@@ -72,7 +72,7 @@ function hideShow(fb, ld, sd, gd, psd, ubl, ubs, sbp, lp, lt, s, ps) {
   $("#landingPage").removeClass("show hidden").addClass(lp);
   $("#leagueTable").removeClass("show hidden").addClass(lt);
   $("#schedule").removeClass("show hidden").addClass(s);
-  $("#playerSearch").removeClass("show hidden").addClass(ps).empty();
+  $("#playerSearch").removeClass("show hidden").addClass(ps);
 }
 
 ///////////////////////////
@@ -218,7 +218,6 @@ function leagueTableContents(response) {
 // - Populate HTML table with Football API data 
 // - create YouTube icons + onclicks with YoutTube API call based on Football data 
 // - show and populate modal on YT click - modal close onclick for X and modal background as per expected behaviour   
-
 var gameweekArray = [];
 
 //get the number of games in a season, epl is the only one with 38 games
@@ -250,7 +249,6 @@ function arrayPop(num) {
 // Function to call API for Schedule Section 
 // Populate HTML as a table 
 // Add YouTube icon with data attr for YouTube API call
-
 function scheduleRound() {
   // set the api url
   var league = "id=" + leagues[$("#leagues").val()];
@@ -262,7 +260,7 @@ function scheduleRound() {
     url: queryUrl,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
+    // console.log(response);
     $("#fixtureTableBody").empty();
     var fixtureTitle = $("#fixtureTitle");
     fixtureTitle.html(
@@ -333,7 +331,7 @@ function ytButtons () {
         };
         // Populate Modal with 3 search results from API
         $.ajax(settings).done(function (response) {
-          console.log(response);
+          // console.log(response);
           $("#modal-body").empty();
           response.items.forEach((item) => {
             var itemTitle = $("<p>").text(item.snippet.title);
@@ -374,7 +372,6 @@ function playerSearch(event) {
   if ($("#playerSearchInput").val() == "" && event.target.id.includes("recentSearchPlayers_")) {
       player = event.target.innerText;
       var playerInput = "p=" + encodeURIComponent(player);
-      // console.log(playerInput);
       queryUrl = playerUrl + playerInput;
   } else if ($("#playerSearchInput").val() == "" && event.target.id == "searchBtnPlayer") {
       makeModal("The search Input was empty, please try again");
@@ -386,14 +383,12 @@ function playerSearch(event) {
     player = $("#playerSearchInput").val();
     var playerInput = "p=" + encodeURIComponent(player);
     queryUrl = playerUrl + playerInput;
-    // console.log(playerInput);
   }
 
   $.ajax({
     url: queryUrl,
     method: "GET",
   }).then(function (response) {
-    console.log(response.player == null);
     if (response.player == null) {
       makeModal('"' + player + '" does not exist ');
       $("#closeModal").unbind('click').on("click", function (event) {
@@ -401,12 +396,8 @@ function playerSearch(event) {
       });
       return;
     } else if (response.player[0].strSport == "Soccer") {
-      // console.log(response);
-      $("#playerSearch").empty();
-      var article = $("<article>").attr("id", "playerResultsItem");
-      $("#playerSearch").append(article);
+      $("#playerResultsItem").empty();
       $("<h3>").text(" Search Results ").appendTo($("#playerResultsItem"));
-
       //populate api data to HTML elements
       playerHtml(response);
     } else {
@@ -440,7 +431,6 @@ function makeModal(msg) {
 
 // function to populate api data to HTML elements
 function playerHtml(response) {
-  console.log(response);
   storePlayers(response.player[0].strPlayer);
     $("#playerResultsItem").html(`<div class="playerGrid">
     <div id="playerImg">
@@ -481,7 +471,6 @@ function storePlayers(player) {
     getPlayerList();
     return;
   }
-
   playerList = JSON.parse(localStorage.getItem("playerList"));
   if (!playerList.list.includes(player)) {
     playerList.list.push(player);
@@ -499,7 +488,6 @@ function getPlayerList() {
   if (localStorage.getItem("playerList") != undefined) {
     playerList = JSON.parse(localStorage.getItem("playerList"));
     playerBtns(playerList);
-    // console.log(playerList);
     return;
   }
   return;
@@ -507,17 +495,9 @@ function getPlayerList() {
 
 //function to create player searched buttons
 function playerBtns(playerList) {
-  $("#playerSearch").empty();
-  var article = $("<article>").attr("id", "playerResultsItem");
-  $("#playerSearch").append(article);
-  
   $("#borderPlayerSearch").empty();
   // aside for the recent search area
-  var asideHistory = $("<aside>").attr({
-    class: "borderPlayerSearch",
-    id: "borderPlayerSearch",
-  });
-  $("#playerSearch").append(asideHistory);
+  var asideHistory = $("#borderPlayerSearch");
   // Heading
   var headingDiv = $("<div>").attr({
     id: "recentSearch",
