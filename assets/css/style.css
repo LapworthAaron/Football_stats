@@ -161,15 +161,7 @@ h1 {
   padding: 20px;
 }
 
-.socialMediaContainer
-{
-  grid-area: socialMediaContainer;
-}
 
-.socialMediaContainer a
-{
-  text-decoration: none;
-}
 #playerSearch 
 {
   padding-bottom: 5%;
