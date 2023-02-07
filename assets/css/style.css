@@ -34,12 +34,17 @@
 /* Page theme - background image */
 #page {
   background-image: url("/assets/images/pitch-dark.jpg");
-  background-repeat: no-repeat;
+  max-height:max-content;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+ 
 }
 
 /*setting style accross the entire page to be used globally*/
 * {
   scroll-behavior: smooth;
+  font-family: "Questrial", "Montserrat", "Lato", "Open Sans";
 }
 
 h1 {
@@ -47,13 +52,6 @@ h1 {
   font-weight: bolder;
 }
 
-h2,
-h3,
-h4,
-h5,
-p {
-  font-family: "Questrial", "Montserrat", "Lato", "Open Sans";
-}
 
 #searchInput[type="text"] {
   padding: 10px;
@@ -106,18 +104,25 @@ p {
   border-radius: 10%;
   height: 22vh;
   width: 12em;
+  border: 2px solid #f0f0f0;
+  box-shadow: 0 5px 15px rgb(255, 255, 255);
+  
 }
 
 #playerImg h3
 {
   margin-top: 1%;
+
 }
+
 #playerImg
 {
   grid-area: playerImg;
   margin-left: -22% ;
   text-align: center;
+
 }
+
 
 #playerBio
 {
@@ -133,10 +138,14 @@ p {
   margin-bottom: 10%;
   margin-right: 11%;
   text-align: justify;
-  border-top: 2px dotted var(--searchColor);
+  border-top: 2px solid var(--searchColor);
 
 }
 
+#borderPlayerSearch
+{
+  border-left: 2px solid var(--searchColor);
+}
 .socialMediaContainer
 {
   grid-area: socialMediaContainer;
