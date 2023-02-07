@@ -289,7 +289,7 @@ function scheduleRound() {
           <td>${homeT}</td>
           <td>vs</td>
           <td>${awayT}</td>
-          <td><img class="yticon" src="./assets/images/YT.PNG"/ data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
+          <td><img class="yticon" src="../images/YT.PNG"/ data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
       } else {
         fixtureRow.html(` <td>${venue}<br/>${rawDate} @ ${rawTime} </td>
           <td>${homeT}</td>
