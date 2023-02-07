@@ -23,7 +23,7 @@
     --brandcolor: #0f0f0f;
     --secondaryBrandColor: #f3f3f4;
     --textColor: #fafafa;
-    --secondaryTextColor: #f0f0f0;
+    --secondaryTextColor: #0f0f0f;
     --searchColor: #f0f0f0;
     --searchSecondaryColor: rgba(255,255,255, 0.3);
     --table_one_colour: rgba(36, 36, 36, 0.755);  
@@ -106,21 +106,23 @@ p {
   border-radius: 10%;
   height: 22vh;
   width: 12em;
-  text-align: center;
-
 }
 
+#playerImg h3
+{
+  margin-top: 1%;
+}
 #playerImg
 {
   grid-area: playerImg;
-  margin-left: 25%;
-  
+  margin-left: -22% ;
+  text-align: center;
 }
 
 #playerBio
 {
   grid-area: playerBio;
-  margin-left: -15%;
+  margin-left: -40%;
 }
 
 #playerInfo
@@ -130,6 +132,8 @@ p {
   margin-left: 12%;
   margin-bottom: 10%;
   margin-right: 11%;
+  text-align: justify;
+  border-top: 2px dotted var(--searchColor);
 
 }
 
@@ -202,40 +206,43 @@ p {
   margin-left: 5%;
 }
 
+#recentSearch
+{
+  margin-bottom: 7%;
+  margin-left: 2%;
+}
 /* buttons for recently searched players */
 .recentSearchPlayers
 {
   width: 30%;
   margin-bottom: 5%;
+  margin-left: 15%;
   text-align: center;
   border-radius: 8%;
   background-color: var(--searchColor);
-  color: var(--secondaryBrandColor) ;
-  margin-left: 15%;
+  color: var(--brandcolor) ;
+  
 } 
 
 /* hover for buttons for recently searched players */
 .recentSearchPlayers:hover
 {
-  background-color: var(--secondaryBrandColor);
-  color: var(--secondaryTextColor);
+  background-color: var(--brandcolor);
+  color: var(--searchColor);
   transition-delay: 0.3s;
 }
 
 /* clear button styling */
-.clearSearchHistory
+#clearSearchHistory
 {
   background-color: var(--searchColor);
-  color: var(--secondaryBrandColor);
-  margin-right: 5%;
-}
- 
-/* clear button no hover  */
-.clearSearchHistory:hover
-{
-  background-color: var(--searchColor);
-  color: var(--secondaryBrandColor);
-  
+  color: var(--brandcolor);
+  margin-left: 8%;
+  margin-top: 5%;
+  border-radius: 15px;
+  font-weight: bolder;
+  border: 2px var(--searchColor);
+  width: 50%;
 }
 
 /* TOM'S CSS FOR LANDING PAGE */

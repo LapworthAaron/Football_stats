@@ -537,7 +537,7 @@ function playerBtns(playerList) {
     class: "btn btn-alert",
     id: "clearSearchHistory",
   })
-  .text("Clear Recent Searches");
+  .text("CLEAR");
   removeListDiv.append(remove);
 
   // on button clicks
