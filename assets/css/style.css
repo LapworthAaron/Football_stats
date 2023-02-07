@@ -139,13 +139,11 @@ h1 {
   margin-right: 11%;
   text-align: justify;
   border-top: 2px solid var(--searchColor);
+  background-color: var(--secondaryTextColor);
 
 }
 
-#borderPlayerSearch
-{
-  border-left: 2px solid var(--searchColor);
-}
+
 .socialMediaContainer
 {
   grid-area: socialMediaContainer;
