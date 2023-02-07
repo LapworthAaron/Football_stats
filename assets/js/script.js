@@ -70,7 +70,7 @@ function hideShow(fb, ld, sd, gd, psd, ubl, ubs, sbp, lp, lt, s, ps) {
   $("#searchBtnPlayer").removeClass("show hidden").addClass(sbp);
   // actual dynamic content sections
   $("#landingPage").removeClass("show hidden").addClass(lp);
-  $("#leagueTable").removeClass("show hidden").addClass(lt).empty();
+  $("#leagueTable").removeClass("show hidden").addClass(lt);
   $("#schedule").removeClass("show hidden").addClass(s);
   $("#playerSearch").removeClass("show hidden").addClass(ps).empty();
 }
@@ -276,7 +276,7 @@ function scheduleRound() {
             <th>Highlights</th>
           </tr>`);
     for (var i = 0; i < response.events.length; i++) {
-      var rawDate = moment(response.events[i].dateEvent, "YYYY-mm-dd").format("Do MMM YYYY");
+      var rawDate = moment(response.events[i].dateEvent, "YYYY-MM-DD").format("Do MMM YYYY");
       var rawTime = moment(response.events[i].strTime, "HH:mm:ss").format("ha");
       var venue = response.events[i].strVenue;
       var homeT = response.events[i].strHomeTeam;
@@ -284,11 +284,19 @@ function scheduleRound() {
       var scoreA = response.events[i].intAwayScore;
       var awayT = response.events[i].strAwayTeam;
       var fixtureRow = $("<tr>");
-      fixtureRow.html(` <td>${venue}<br/>${rawDate} @ ${rawTime} </td>
-            <td>${homeT}</td>
-            <td>${scoreH} : ${scoreA}</td>
-            <td>${awayT}</td>
-            <td><img class="yticon" src="./assets/images/YT.PNG"/ data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
+      if (scoreH == null) {
+        fixtureRow.html(` <td>${venue}<br/>${rawDate} @ ${rawTime} </td>
+          <td>${homeT}</td>
+          <td>vs</td>
+          <td>${awayT}</td>
+          <td><img class="yticon" src="./assets/images/YT.PNG"/ data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
+      } else {
+        fixtureRow.html(` <td>${venue}<br/>${rawDate} @ ${rawTime} </td>
+          <td>${homeT}</td>
+          <td>${scoreH} : ${scoreA}</td>
+          <td>${awayT}</td>
+          <td><img class="yticon" src="./assets/images/YT.PNG"/ data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
+      }
       $("#fixtureTableBody").append(fixtureRow);
     }
     ytButtons();
@@ -397,7 +405,7 @@ function playerSearch(event) {
       $("#playerSearch").empty();
       var article = $("<article>").attr("id", "playerResultsItem");
       $("#playerSearch").append(article);
-      $("<h3>").text(" Search Results ").appendTo(article);
+      $("<h3>").text(" Search Results ").appendTo($("#playerResultsItem"));
 
       //populate api data to HTML elements
       playerHtml(response);
@@ -449,7 +457,7 @@ function playerHtml(response) {
       <h4> Position: ${response.player[0].strPosition}</h4>
     </div>
     <div id="playerInfo"> 
-      <h5>${response.player[0].strDescriptionEN}</h5>
+      <p>${response.player[0].strDescriptionEN}</p>
     </div>
   </div>`)
 }
@@ -490,6 +498,10 @@ function getPlayerList() {
 
 //function to create player searched buttons
 function playerBtns(playerList) {
+  $("#playerSearch").empty();
+  var article = $("<article>").attr("id", "playerResultsItem");
+  $("#playerSearch").append(article);
+  
   $("#borderPlayerSearch").empty();
   // aside for the recent search area
   var asideHistory = $("<aside>").attr({
