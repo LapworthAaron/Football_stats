@@ -422,7 +422,7 @@ function makeModal(msg) {
   var close = $("<div>").attr({"id":"closeModal","class":"close"});
   var closeBtn = $("<span>").text("X");
   close.append(closeBtn);
-  var p = $("<p>").text(msg);
+  var p = $("<p>").attr("class","modalPara").text(msg);
   modalContent.append(close, p);
   $("#closeModal").unbind('click').on("click", function (event) {
     $("#myModal").remove();
