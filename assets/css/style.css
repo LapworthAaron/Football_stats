@@ -33,7 +33,7 @@
 
 /* Page theme - background image */
 #page {
-  background-image: url("/assets/images/pitch-dark.jpg");
+  background-image: url("../images/pitch-dark.jpg");
   max-height:max-content;
   background-position: center;
   background-repeat: repeat;
