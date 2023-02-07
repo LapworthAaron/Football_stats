@@ -493,9 +493,21 @@ h1 {
   text-align: center;
 }
 
-#close-modal span:hover{
+#close-modal span:hover,
+#closeModal:hover{
   transform: scale(1.1);
 
+}
+
+.modalPara {
+  padding: 20px 25px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#closeModal {
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 main{
