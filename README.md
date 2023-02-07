@@ -43,13 +43,14 @@ We used the following API to showcase the highlights of each fixture in the game
 # Screenshots
 
 ## Screenshot of the Landing Page
-<img width="1118" alt="image" src="https://user-images.githubusercontent.com/117782725/217137715-e190347b-98dd-4d16-8750-beba59ca1541.png">
+<img width="1118" alt="LandingPage" src="https://user-images.githubusercontent.com/117782725/217137715-e190347b-98dd-4d16-8750-beba59ca1541.png">
 
 ## Screenshot of the League Table Page
 
 ## Screenshot of the Schedule Page
 
-## Screenshot of the Search Player Page
+## Screenshot of the Player Search Page
+<img width="1018" alt="PlayerSearch" src="https://user-images.githubusercontent.com/117782725/217141019-69560a8b-9b35-47a3-82c2-8791f70ceec6.png">
 
 
 ## URL
