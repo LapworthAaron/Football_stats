@@ -450,11 +450,20 @@ function playerHtml(response) {
       </h3>
     </div>
     <div id="playerBio" >
-      <h4> Born: ${response.player[0].strBirthLocation}</h4>
-      <h4> Nationality: ${response.player[0].strNationality}</h4>
-      <h4> DOB: ${response.player[0].dateBorn}</h4>
-      <h4> Team : ${response.player[0].strTeam}</h4>
-      <h4> Position: ${response.player[0].strPosition}</h4>
+      <div>
+      <h4>Born</h4> 
+      <p>${response.player[0].strBirthLocation}</p>
+      <h4>Nationality</h4> 
+      <p>${response.player[0].strNationality}</p>
+      <h4>DOB</h4>
+      <p>${response.player[0].dateBorn}</p>
+      </div>
+      <div>
+      <h4>Team</h4>
+      <p>${response.player[0].strTeam}</p>
+      <h4>Position</h4>
+      <p> ${response.player[0].strPosition}</p>
+      </div>
     </div>
     <div id="playerInfo"> 
       <p>${response.player[0].strDescriptionEN}</p>
