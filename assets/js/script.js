@@ -432,6 +432,7 @@ function makeModal(msg) {
 // function to populate api data to HTML elements
 function playerHtml(response) {
   storePlayers(response.player[0].strPlayer);
+  var playerInfo = response.player[0].strDescriptionEN.split('.');
     $("#playerResultsItem").html(`<div class="playerGrid">
     <div id="playerImg">
       <img class ="imgPlaceHolder" src="${response.player[0].strThumb}"/>
@@ -454,12 +455,15 @@ function playerHtml(response) {
       <h4>Position</h4>
       <p> ${response.player[0].strPosition}</p>
       </div>
-    </div>
-    <div id="playerInfo"> 
-      <p>${response.player[0].strDescriptionEN}</p>
-    </div>
-  </div>`)
+   </div>`)
+ var playerInfoDiv = $("<div>").attr("id", "playerInfo")
+ $("#playerResultsItem").append(playerInfoDiv)
+ for (let index = 0; index < 3; index++) {
+   var scentence = $("<p>").text(playerInfo[index]);
+   playerInfoDiv.append(scentence);
+ }
 }
+
 
 // Player Search History
 //function to store player searched into localStorage
