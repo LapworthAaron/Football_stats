@@ -723,19 +723,21 @@ table
     padding: 5px;
 }
 
+ /* Putting recent search at the top for tablet devices */
+ #playerSearch 
+ {
+   padding-bottom: 2%;
+   display: grid;
+   grid-template-rows: auto;
+   grid-template-columns: auto;
+   grid-template-areas:
+   "title" 
+   "borderPlayerSearch" 
+   "playerResultsItem"
+   "recentSearchItems";
+ }
 
-    /* Putting recent search at the top for tablet devices */
-  #playerSearch 
-  {
-    padding-bottom: 5%;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-    grid-template-areas: 
-    "borderPlayerSearch" 
-    "playerResultsItem"
-    "recentSearchItems";
-  }
+   
 
   #borderPlayerSearch
   {
@@ -747,6 +749,7 @@ table
     'clearSearch clearSearch clearSearch';
     justify-content: center;
     align-items: center;
+    margin: auto;
   }
 
   /* redefining clear button , and player buttons width */
