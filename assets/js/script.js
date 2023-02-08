@@ -142,6 +142,12 @@ function leagueTableTemplate() {
 
 // dynamically create the table contents, looping through the response object array
 function leagueTableContents(response) {
+  console.log(response);
+  var leagueTitle = $("<div>").attr("class", "leagueTitleInfo");
+  leagueTitle.html(
+    `<h1>League: ${response.table[0].strLeague}</h1> <h2>Season: ${response.table[0].strSeason}</h2>`
+  );
+  $("#leagueTable").prepend(leagueTitle);
   for (var i = 0; i < response.table.length; i++) {
     var tableRow = $("<tr>");
     var pos = $("<td>")
