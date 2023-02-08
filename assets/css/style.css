@@ -19,34 +19,36 @@
 
 :root
 {
-    --brandcolor: #0f0f0f;
-    --secondaryBrandColor: #f3f3f4;
-    --textColor: #fafafa;
-    --secondaryTextColor: #0f0f0f;
-    --searchColor: #f0f0f0;
-    --searchSecondaryColor: rgba(255,255,255, 0.3);
-    --table_one_colour: rgba(36, 36, 36, 0.755);  
-    --table_two_colour: rgba(33, 37, 41, 1);
-    --table_three_colour: rgba(36, 36, 36, 0.755);
+  --brandcolor: #0f0f0f;
+  --secondaryBrandColor: #f3f3f4;
+  --textColor: #fafafa;
+  --secondaryTextColor: #0f0f0f;
+  --searchColor: #f0f0f0;
+  --searchSecondaryColor: rgba(255,255,255, 0.3);
+  --table_one_colour: rgba(36, 36, 36, 0.755);
+  --table_two_colour: rgba(33, 37, 41, 1);
+  --table_three_colour: rgba(36, 36, 36, 0.755);
 }
 
 /* Page theme - background image */
-#page {
+#page 
+{
   background-image: url("../images/pitch-dark.jpg");
   max-height:max-content;
   background-position: center;
   background-repeat: repeat;
   background-size: cover;
- 
 }
 
 /*setting style accross the entire page to be used globally*/
-* {
+* 
+{
   scroll-behavior: smooth;
   font-family: "Questrial", "Montserrat", "Lato", "Open Sans";
 }
 
-h1 {
+h1 
+{
   font-family: "Prompt" sans-serif, "Raleway", "Open Sans";
   font-weight: bolder;
 }
@@ -185,6 +187,9 @@ h1 {
 .recentSearch
 {
   margin-top:10%;
+  margin-bottom: 7%;
+  margin-left: 2%;
+  grid-area: recentSearch;
 }
 
 .border-left
@@ -199,15 +204,11 @@ h1 {
   /* margin-left: 5%; */
 }
 
-#recentSearch
-{
-  margin-bottom: 7%;
-  margin-left: 2%;
-}
+
 /* buttons for recently searched players */
 .recentSearchPlayers
 {
-  width: 60%;
+  width: fit-content;
   margin-bottom: 5%;
   margin-left: 5%;
   text-align: center;
@@ -235,7 +236,8 @@ h1 {
   font-weight: bolder;
   border: 2px var(--searchColor);
   width: 60%;
-  border: 2px solid var(--searchSecondaryColor);
+  border: 2px solid var(--searchColor);
+  letter-spacing: 2px;
 }
 
 #clearSearchHistory:hover {
@@ -509,11 +511,12 @@ main{
 /* ---------------------------- */
 /* ---------------------------- */
 /* league table start */
-table {
+table 
+{
   border: 10px solid dimgrey;
   border-collapse: collapse;
   margin: 2rem auto;
-  }
+}
   
   table tr {
   border: 5px solid dimgrey;
@@ -551,62 +554,286 @@ table {
   font-weight: 900;
   }
   
-  table tr td div {
+  table tr td div 
+{
   display: inline-block;
   width: 14%;
   text-align: center;
   margin: 0 2px;
-  }
+}
   
-  .formGreen{
+.formGreen
+{
   color: green;
   font-weight: bolder;
   /* padding: 0 2px; */
-  }
+}
   
-  .formRed{
+.formRed
+{
   color: red;
   font-weight: bolder;
+}
+
+/* / #Tablet (Portrait)/ */
+/* / Note: Design for a width of 768px (Tablet) / */
+@media screen and (min-width: 768px) and (max-width: 1011px) 
+{
+  .info 
+  {
+    display: none;
   }
 
-  /* / #Tablet (Portrait)/ */
-  /* / Note: Design for a width of 768px / */
-  @media screen and (min-width: 768px) and (max-width: 1011px) {
-    .info {
-      display: none;
+  /* Putting recent search at the top for tablet devices */
+  #playerSearch 
+  {
+    padding-bottom: 5%;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    "borderPlayerSearch" 
+    "playerResultsItem"
+    "recentSearchItems";
+  }
+
+  #borderPlayerSearch
+  {
+    grid-area: borderPlayerSearch;  
+    display: grid;
+    grid-template-areas: 
+    'recentSearch recentSearch' 
+    'recentSearchItems recentSearchItems'
+    'clearSearch clearSearch';
+    /* justify-content: center;
+    align-items: center; */
+  }
+
+  /* redefining clear button , and player buttons width */
+  #clearSearchHistory
+  {
+    width: fit-content;
+  }
+
+
+  #recentSearch
+  {
+    width: max-content;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+  }
+
+  .recentSearchPlayers
+  {
+    width: max-content;
+    
+  } 
+
+  #clearSearch
+  {
+    grid-area: clearSearch;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+  }
+  #recentSearchItems
+  {
+    margin:auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    width: 80%;
+    row-gap: 0.5em;
+  }
+
+  /* Player Search  */
+  .playerGrid
+  {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'playerImg' /* 1st row */
+    'playerBio'  /* 2nd row */    
+    'playerInfo';   /* 3rd row */ 
+    }
+
+     #playerBio
+    {
+      grid-area: playerBio;
+      display: flex;
+      /* gap: 15%; */
+      justify-content: center;
     }
   }
+
   /* / #Mobile (Landscape)/ */
   /* / Note: Design for a width of 600px / */
   @media screen and (min-width: 600px) and (max-width: 767px) {
     .info,
     .form,
-    .logo {
+    .logo 
+    {
       display: none;
     }
+
+    /* Player Search  */
+    .playerGrid
+    {
+      margin-top: 5%;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-template-areas: 
+      'playerImg' /* 1st row */
+      'playerBio'  /* 2nd row */    
+      'playerInfo';   /* 3rd row */ 
+    }
+
+    #playerBio
+    {
+      grid-area: playerBio;
+      display: flex;
+      /* gap: 15%; */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #playerBio h4 
+    {
+      width: 100%;
+      text-align: center;
+    }
+}
+
+/* / #Mobile (Landscape)/ */
+/* / Note: Design for a width of 480px / */
+@media screen and (min-width: 480px) and (max-width: 599px) 
+{
+  .info,
+  .form,
+  .logo,
+  .ga,
+  .gf  
+  {
+    display: none;
   }
-  /* / #Mobile (Landscape)/ */
-  /* / Note: Design for a width of 480px / */
-  @media screen and (min-width: 480px) and (max-width: 599px) {
+
+  /* Redefining Player Search Section from Grid to Flex column */
+  #playerSearch 
+  {
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: auto;
+    grid-template-columns: auto
+    /* grid-template-areas: "playerResultsItem"; */
+  }
+
+  /* Removing recent search aside for mobile devices */
+  #borderPlayerSearch
+  {
+    display: none;
+  }
+
+  /* Player Search  */
+  .playerGrid
+  {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'playerImg' /* 1st row */
+    'playerBio'  /* 2nd row */    
+    'playerInfo';   /* 3rd row */ 
+  }
+ 
+  #playerBio
+  {
+   grid-area: playerBio;
+   display: flex;
+   /* gap: 15%; */
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  
+  }
+ 
+  #playerBio h4 
+  {
+    width: 100%;
+    text-align: center;
+  }
+}
+  
+/* / #Mobile (Portrait)/ */
+/* / Note: Design for a width of 320px / */
+  @media screen and (max-width: 479px) 
+  {
     .info,
     .form,
     .logo,
     .ga,
-    .gf  {
+    .gf 
+    {
       display: none;
     }
-  }
-  /* / #Mobile (Portrait)/ */
-  /* / Note: Design for a width of 320px / */
-  @media screen and (max-width: 479px) {
-    .info,
-    .form,
-    .logo,
-    .ga,
-    .gf {
+
+    #borderPlayerSearch
+    {
       display: none;
     }
-  }
+
+    /* Redefining grid area as 1 column  */
+    #playerSearch 
+    {
+      padding-bottom: 5%;
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: auto;
+      grid-template-areas: "playerResultsItem";
+    }
+
+
+    /* /* Player Search (img, bio and info as flex column) */
+    .playerGrid
+    {
+      margin-top:5%;
+      display: flex;
+      flex-direction: column;
+    }
+ 
+    #playerBio
+    {
+      grid-area: playerBio;
+      display: flex;   
+       /* gap: 15%; */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10%;
+      width: fit-content;
+    }
+ 
+    #playerBio h4 
+    {
+      width: 100%;
+      text-align: center;
+    }
+
+    .imgPlaceHolder
+    {
+      width: 10em;
+    }
+}
 
   /* league table end */
   /* ---------------------------- */
