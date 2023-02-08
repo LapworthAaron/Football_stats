@@ -171,7 +171,17 @@ h1
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 75% 25%;
-  grid-template-areas: "playerResultsItem recentSearch";
+  grid-template-areas: 
+  "title title"
+  "playerResultsItem recentSearch";
+}
+
+#playerSearchTitle {
+  grid-area: title;
+  background-color: var(--table_one_colour);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .borderToSeparate
@@ -605,7 +615,8 @@ table
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: auto;
-    grid-template-areas: 
+    grid-template-areas:
+    "title" 
     "borderPlayerSearch" 
     "playerResultsItem"
     "recentSearchItems";
@@ -691,7 +702,7 @@ table
       grid-area: playerBio;
       display: flex;
       /* gap: 15%; */
-      justify-content: center;
+      justify-content: space-around;
     }
   }
 

@@ -437,13 +437,15 @@ function makeModal(msg) {
 // function to populate api data to HTML elements
 function playerHtml(response) {
   storePlayers(response.player[0].strPlayer);
+  var playerSearchTitle = $("<div>").attr("id", "playerSearchTitle");
+    playerSearchTitle.html(
+      `<h1>Player Search</h1> <h2>${response.player[0].strPlayer}</h2>`
+    );
+    $("#playerSearch").prepend(playerSearchTitle);
   var playerInfo = response.player[0].strDescriptionEN.split('.');
     $("#playerResultsItem").html(`<div class="playerGrid">
     <div id="playerImg">
       <img class ="imgPlaceHolder" src="${response.player[0].strThumb}"/>
-      <h3>
-        ${response.player[0].strPlayer}
-      </h3>
     </div>
     <div id="playerBio" >
       <div>
