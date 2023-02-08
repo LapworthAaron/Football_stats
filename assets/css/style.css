@@ -638,8 +638,14 @@ table
     display: flex;
     align-items: baseline;
     justify-content: center;
-
+    
   }
+
+  #clearSearchHistory
+  {
+    width:20%;
+  }
+
   #recentSearchItems
   {
     margin: auto;
