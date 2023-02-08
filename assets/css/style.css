@@ -208,7 +208,7 @@ h1
 /* buttons for recently searched players */
 .recentSearchPlayers
 {
-  width: fit-content;
+  width: 55%;
   margin-bottom: 5%;
   margin-left: 5%;
   text-align: center;
