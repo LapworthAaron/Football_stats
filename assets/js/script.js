@@ -413,14 +413,15 @@ function playerSearch(event) {
       //populate api data to HTML elements
       playerHtml(response);
     } else {
+      console.log($("#playerSearchInput").val());
       makeModal('"' + $("#playerSearchInput").val() + '" does not exist ');
       $("#closeModal").unbind('click').on("click", function (event) {
         $("#myModal").remove();
       });
       return;
     }
+    $("#playerSearchInput").val("");
   });
-  $("#playerSearchInput").val("");
   return;
 }
 
