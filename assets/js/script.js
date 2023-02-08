@@ -299,13 +299,13 @@ function scheduleRound() {
           <td>${homeT}</td>
           <td>vs</td>
           <td>${awayT}</td>
-          <td><img class="yticon" src="../images/YT.PNG"/ data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
+          <td><img class="yticon" src="../assets/images/YT.PNG" data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
       } else {
         fixtureRow.html(` <td>${venue}<br/>${rawDate} @ ${rawTime} </td>
           <td>${homeT}</td>
           <td>${scoreH} : ${scoreA}</td>
           <td>${awayT}</td>
-          <td><img class="yticon" src="./assets/images/YT.PNG"/ data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
+          <td><img class="yticon" src="../assets/images/YT.PNG" data-date="${rawDate}" data-homeT="${homeT}" data-scoreH="${scoreH}" data-scoreA="${scoreA}" data-awayT="${awayT}"></td>`);
       }
       $("#fixtureTableBody").append(fixtureRow);
     }
@@ -444,19 +444,14 @@ function makeModal(msg) {
 // function to populate api data to HTML elements
 function playerHtml(response) {
   storePlayers(response.player[0].strPlayer);
-
-  var playerSearchTitle = $("<div>").attr("id", "playerSearchTitle");
-    playerSearchTitle.html(
+  $("#playerSearchTitle").empty();
+    $("#playerSearchTitle").html(
       `<h1>Player Search</h1> <h2>${response.player[0].strPlayer}</h2>`
     );
-    $("#playerSearch").prepend(playerSearchTitle);
   var playerInfo = response.player[0].strDescriptionEN.split('.');
     $("#playerResultsItem").html(`<div class="playerGrid">
     <div id="playerImg">
       <img class ="imgPlaceHolder" src="${response.player[0].strThumb}" alt="Image of ${response.player[0].strPlayer}"/>
-      <h3>
-        ${response.player[0].strPlayer}
-      </h3>
     </div>
     <div id="playerBio" >
       <div>
