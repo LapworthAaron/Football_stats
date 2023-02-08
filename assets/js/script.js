@@ -453,9 +453,6 @@ function playerHtml(response) {
   var playerInfo = response.player[0].strDescriptionEN.split('.');
     $("#playerResultsItem").html(`<div class="playerGrid">
     <div id="playerImg">
-      <img class ="imgPlaceHolder" src="${response.player[0].strThumb}"/>
-  $("#playerResultsItem").html(`<div class="playerGrid">
-    <div id="playerImg">
       <img class ="imgPlaceHolder" src="${response.player[0].strThumb}" alt="Image of ${response.player[0].strPlayer}"/>
       <h3>
         ${response.player[0].strPlayer}
