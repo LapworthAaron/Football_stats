@@ -236,16 +236,16 @@ h1
 /* clear button styling */
 #clearSearchHistory
 {
-  background-color: var(--searchSecondaryColor);
+  background-color: var(--brandcolor);
   color: var(--searchColor);
   margin-left: 5%;
   margin-top: 5%;
   border-radius: 15px;
-  font-weight: bolder;
-  border: 2px var(--searchColor);
+  font-weight: 550;
+  border: 2px var(--brandcolor);
   width: 60%;
   border: 2px solid var(--searchColor);
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 #clearSearchHistory:hover {
@@ -629,6 +629,7 @@ table
     'clearSearch clearSearch clearSearch';
     justify-content: center;
     align-items: center;
+    margin: auto;
   }
 
   /* redefining clear button , and player buttons width */
@@ -652,13 +653,14 @@ table
     width: max-content;
     margin-right: 5%;
     
+    
   } 
 
   #clearSearch
   {
     grid-area: clearSearch;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
     
   }
@@ -666,6 +668,10 @@ table
   #clearSearchHistory
   {
     width:20%;
+    margin: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #recentSearchItems
@@ -698,8 +704,9 @@ table
     {
       grid-area: playerBio;
       display: flex;
+      justify-content: space-evenly;
+      margin-top: 5%;
       /* gap: 15%; */
-      justify-content: space-around;
     }
   }
 
@@ -779,9 +786,9 @@ table
   {
     grid-area: clearSearch;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
-    
+    margin-top: 2%;
   }
 
   #clearSearchHistory
