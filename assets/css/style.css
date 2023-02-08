@@ -1,8 +1,7 @@
-/* Temp CSS for better testing - secrtions display */
+/* Dropdowns / Banner */
 #filterBanner {
   background-color: white;
 }
-
 
 #playerSearch {
   color: #f5f5f5;
@@ -11,11 +10,8 @@
 
 #schedule {
     color: #f5f5f5;
-    /* height: auto; */
 }
 
-
-/* ADIL'S CSS */
 
 :root
 {
@@ -717,6 +713,17 @@ table
       display: none;
     }
 
+  /* Filter Banner MediaQ Mobile */
+  #filterBanner {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+    color: #f5f5f5;
+    padding: 5px;
+}
+
+
     /* Putting recent search at the top for tablet devices */
   #playerSearch 
   {
@@ -846,7 +853,7 @@ table
 
 /* / #Mobile (Landscape)/ */
 /* / Note: Design for a width of 480px / */
-@media screen and (min-width: 480px) and (max-width: 599px) 
+@media screen and (min-width: 300px) and (max-width: 599px) 
 {
   .info,
   .form,
@@ -855,6 +862,18 @@ table
   .gf  
   {
     display: none;
+  }
+  .landingPage {
+    margin-top: 0px;
+  }
+    /* Filter Banner MediaQ Mobile */
+    #filterBanner {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: auto;
+      color: #f5f5f5;
+      padding: 5px;
   }
 
   /* Redefining Player Search Section from Grid to Flex column */
