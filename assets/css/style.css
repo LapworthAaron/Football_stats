@@ -512,6 +512,19 @@ main{
 /* ---------------------------- */
 /* ---------------------------- */
 /* league table start */
+
+#leagueTitleInfo {
+  background-color: var(--table_one_colour);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #f5f5f5;
+}
+
+#leagueTitleInfo h2 {
+  font-weight: 600;
+}
+
 table 
 {
   border: 10px solid dimgrey;
