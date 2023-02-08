@@ -189,9 +189,16 @@ function leagueTableContents(response) {
       }
       form.append(div);
     }
+    // remove Promotion from the premier league info column
     var desc = $("<td>")
-      .text(response.table[i].strDescription)
-      .attr("class", "info");
+    .attr("class", "info");
+    if (response.table[i].strDescription.includes("Champions") ||
+      response.table[i].strDescription.includes("Europa")) {
+        var league_info = response.table[i].strDescription.replace("Promotion - ", "");
+        desc.text(league_info);
+    } else {
+      desc.text(response.table[i].strDescription);
+    }
     $("#dynamicTable").append(tableRow);
     logo.append(logoH);
     tableRow.append(
