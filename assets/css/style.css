@@ -602,17 +602,17 @@ table
     grid-area: borderPlayerSearch;  
     display: grid;
     grid-template-areas: 
-    'recentSearch recentSearch' 
-    'recentSearchItems recentSearchItems'
-    'clearSearch clearSearch';
-    /* justify-content: center;
-    align-items: center; */
+    'recentSearch recentSearch recentSearch' 
+    'recentSearchItems recentSearchItems recentSearchItems'
+    'clearSearch clearSearch clearSearch';
+    justify-content: center;
+    align-items: center;
   }
 
   /* redefining clear button , and player buttons width */
   #clearSearchHistory
   {
-    width: fit-content;
+    width: 50%;
   }
 
   /* aligning 'Recent Search header to center */
@@ -638,17 +638,18 @@ table
     display: flex;
     align-items: baseline;
     justify-content: center;
+
   }
   #recentSearchItems
   {
-    margin:auto;
+    margin: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     width: fit-content;
-    width: 80%;
+    width: 75%;
     row-gap: 0.5em;
   }
 
