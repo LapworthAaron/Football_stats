@@ -1,10 +1,12 @@
 # Football_Stats
 ## Overview
 * Football_Stats is a group project as part of the Front-End Web Development Bootcamp.
+
 * In Football_Stats you can:
-** See the latest league tables
-** See Fixtures and Results for all 4 football leagues in England and see highlights of the game for each fixture.
-** Search for your preffered football player to see their information. 
+* * See the latest league tables
+* * See Fixtures and Results for all 4 football leagues in England and see highlights of the game for each fixture.
+* * Search for your preffered football player to see their information. 
+
 
 # The Group
 ## Group Name: The Bristol Boys
